@@ -14,11 +14,11 @@ draft = false
 
 - Can be pre-configured with i3 or Cinnamon desktop.
 
-- Offers binary-based packages by default, with source-based packages being an encouraged option.
+- Offers source-based packages from our own repo.
 
-- Uses a modified version of Portage as its package manager, great for those who are interested in source-based distro
+- Uses our own custom package manager pms, great for those who are interested in source-based distro.
 
-- Is licensed with GPL-3.0. We embraces open source 🔥
+- Is licensed with GPL-3.0. We embraces open source! 🔥
 
 ---
 
@@ -28,4 +28,4 @@ draft = false
 
 - Scability and uniqueness, focusing on user-preference and efficiency.
 
-- Why not? You watch LearnixTV, I would trust the OS made after him 🐧
+- Why not? You watch LearnixTV, I would trust the OS made after him! 🐧
