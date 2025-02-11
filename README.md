@@ -2,7 +2,7 @@
   <h2 style="font-size: 74px;">
     <strong> 
       <a href="https://learnixos.github.io/" style="text-decoration: none; color: inherit;">
-        𝗪𝗘𝗕𝗦𝗜𝗧𝗘
+        𝗟𝗲𝗮𝗿𝗻𝗶𝘅𝗢𝗦 - 𝗪𝗲𝗯𝘀𝗶𝘁𝗲
       </a> 
     </strong>
   </h2>
