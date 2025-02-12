@@ -50,7 +50,7 @@ header {
     border-radius: 10px; /* Optional: Add border-radius for a smoother look */
 }
 
-.github-link, .youtube-link {
+.github-link, .youtube-link, .discord-link {
     position: absolute;
     top: 20px;
     font-size: 2em;
@@ -65,6 +65,10 @@ header {
 
 .youtube-link {
     right: 100px;
+}
+
+.discord-link {
+    right: 150px;
 }
 
 .title {
