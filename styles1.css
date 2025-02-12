@@ -43,7 +43,7 @@ header {
 }
 
 .logo {
-    width: 230px; /* Set width to 210px */
+    width: 230px;
     height: auto;
     margin-bottom: 20px;
     border-radius: 10px; /
@@ -53,7 +53,7 @@ header {
     position: absolute;
     top: 20px;
     font-size: 2em;
-    color: #fff;
+    color: #ccc;
     text-decoration: none;
     transition: color 0.3s ease;
 }
