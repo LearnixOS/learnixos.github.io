@@ -112,6 +112,20 @@ nav ul li a:hover {
     line-height: 1.8;
 }
 
+.about-link {
+    position: absolute;
+    left: 20px;
+    top: 35px; 
+    font-size: 1.2em;
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.about-link:hover {
+    color: #fff;
+}
+
 .features {
     margin-bottom: 40px;
 }
