@@ -46,8 +46,8 @@ header {
     width: 210px; /* Set width to 210px */
     height: auto;
     margin-bottom: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Add shadow */
-    border-radius: 10px; /* Optional: Add border-radius for a smoother look */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+    border-radius: 10px; /
 }
 
 .github-link, .youtube-link, .discord-link {
@@ -74,7 +74,7 @@ header {
 .title {
     font-size: 3em;
     color: #fff;
-    margin-bottom: 40px; /* Increased margin to push the title down */
+    margin-bottom: 40px; 
 }
 
 nav ul {
@@ -117,7 +117,7 @@ nav ul li a:hover {
 }
 
 .features h2 {
-    font-size: 3em; /* Increased font size for features title */
+    font-size: 3em; 
     color: #fff;
     margin-bottom: 20px;
 }
@@ -164,7 +164,7 @@ nav ul li a:hover {
 }
 
 .why-learnixos {
-    margin-bottom: 60px; /* Increased margin for more space */
+    margin-bottom: 60px; 
 }
 
 .why-learnixos h2 {
@@ -225,14 +225,14 @@ nav ul li a:hover {
     display: inline-block;
     padding: 15px 30px;
     background-color: #394260;
-    color: #e0e0e0; /* Light blue text for better readability */
+    color: #e0e0e0; 
     text-decoration: none;
     font-size: 1.5em;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     margin-top: 20px;
-    margin-bottom: 20px; /* Add space between links */
+    margin-bottom: 20px;
 }
 
 .download-link:hover {
