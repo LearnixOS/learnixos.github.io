@@ -49,6 +49,18 @@ header {
     border-radius: 10px; /
 }
 
+.github-link:hover {
+        color:#fff;
+}
+
+.youtube-link:hover {
+        color:#fff;
+}
+
+.discord-link:hover {
+        color:#fff;
+}
+
 .github-link, .youtube-link, .discord-link {
     position: absolute;
     top: 20px;
