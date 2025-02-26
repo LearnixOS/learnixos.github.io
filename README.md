@@ -16,6 +16,7 @@
 </div>
 </div> 
 
+<div align="center">
 
 
 ### **Thanks to the contributions of:**
