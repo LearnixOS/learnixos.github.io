@@ -146,6 +146,7 @@
             margin-top: 20px;
             width: 100%;
             max-width: 800px;
+            position: relative;
         }
 
         .file-content pre {
@@ -153,6 +154,28 @@
             border-radius: 10px;
             padding: 15px;
             overflow-x: auto;
+            text-align: left; /* Left-align the text */
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: none; /* Hide by default */
+        }
+
+        .copy-button.visible {
+            display: block; /* Show when viewing TOML file */
+        }
+
+        .copy-button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
         }
 
         .sidebar {
@@ -220,8 +243,8 @@
         .social-links {
             position: absolute;
             top: 20px;
-            right: -350px;
-            display: flex;
+            right: -350px; 
+	    display: flex;
             gap: 15px;
         }
 
@@ -266,13 +289,13 @@
         </ul>
         <div class="file-content" id="file-content">
             <!-- File content will be displayed here -->
+            <button class="copy-button" id="copy-button">Copy</button>
         </div>
     </div>
 
     <nav class="sidebar" id="sidebar">
         <ul>
-	    <li><a href="index.html">Home</a></li>
-	    <li><a href="about.html">About</a></li>
+            <li><a href="about.html">About</a></li>
             <li><a href="download.html">Download</a></li>
             <li><a href="lxpkg.html">LXPKG</a></li>
         </ul>
@@ -287,6 +310,7 @@
         const fileContent = document.getElementById('file-content');
         const menuIcon = document.getElementById('menu-icon');
         const sidebar = document.getElementById('sidebar');
+        const copyButton = document.getElementById('copy-button');
         let currentPath = '';
 
         async function fetchFiles(path = '') {
@@ -332,6 +356,7 @@
                 const content = await response.text();
                 fileContent.innerHTML = `<pre><code class="toml">${content}</code></pre>`;
                 hljs.highlightBlock(fileContent.querySelector('pre code'));
+                copyButton.classList.add('visible'); // Show the copy button
             } catch (error) {
                 console.error('Error fetching file content:', error);
             }
@@ -355,6 +380,15 @@
 
         menuIcon.addEventListener('click', () => {
             sidebar.classList.toggle('active');
+        });
+
+        copyButton.addEventListener('click', () => {
+            const code = fileContent.querySelector('pre code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                alert('Code copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
         });
 
         // Initial fetch
