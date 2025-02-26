@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About LearnixOS</title>
+    <title>LearnixOS | About</title>
     <link rel="stylesheet" href="styles1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="assets/images/favicon.png" type="image/png">
@@ -11,7 +11,9 @@
 <body>
     <div class="container">
         <header>
-            <a href="index.html" class="about-link">Home</a>
+            <div class="menu-icon" id="menu-icon">
+                <i class="fas fa-bars"></i>
+            </div>
             <img src="assets/images/logo.png" alt="LearnixOS Logo" class="logo">
             <a href="https://github.com/LearnixOS/LearnixOS" target="_blank" class="github-link">
                 <i class="fab fa-github"></i>
@@ -19,11 +21,19 @@
             <a href="https://www.youtube.com/@_Learnix" target="_blank" class="youtube-link">
                 <i class="fab fa-youtube"></i>
             </a>
-              <a href="https://discord.gg/ZSDftCgJ" target="_blank" class="discord-link">
+            <a href="https://discord.gg/ZSDftCgJ" target="_blank" class="discord-link">
                 <i class="fab fa-discord"></i>
             </a>
             <p class="title">About LearnixOS</p>
         </header>
+
+        <nav class="sidebar" id="sidebar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="download.html">Download</a></li>
+                <li><a href="lxpkg.html">LXPKG</a></li>
+            </ul>
+        </nav>
 
         <section class="about-content">
             <p>LearnixOS, also known as LXOS, is a Linux distro made by LearnixTV’s community with the aim to aid users who are new to Linux in trying out a source-based distro.</p>
@@ -36,6 +46,12 @@
             <p class="footer-text">© LearnixOS 2025</p>
         </footer>
     </div>
+
+    <script>
+        document.getElementById('menu-icon').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
 
