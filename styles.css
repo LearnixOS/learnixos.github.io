@@ -100,24 +100,24 @@ header {
 
 .sidebar {
     position: fixed;
-    top: 28px; /* Adjusted to float below the header */
+    top: 28px;
     left: -300px;
     width: 280px;
-    height: calc(100vh - 50px); /* Full height minus the header height */
+    height: calc(100vh - 50px);
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(33px);
     transition: left 0.3s ease, transform 0.3s ease;
     z-index: 1000;
     padding: 20px;
-    border-radius: 15px; /* Rounded corners */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Added shadow for floating effect */
+    border-radius: 15px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .sidebar.active {
-    left: 25px; /* Adjusted to float slightly off the edge */
+    left: 25px; 
     transform: translateY(0);
 }
 
@@ -143,7 +143,7 @@ header {
 
 .sidebar ul li a:hover {
     color: #fff;
-    transform: scale(1.1); /* Hover animation to scale text slightly */
+    transform: scale(1.1);
 }
 
 
