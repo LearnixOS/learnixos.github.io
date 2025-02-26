@@ -1,0 +1,271 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Automata';
+    src: url('assets/fonts/AUTOMATA.ttf') format('truetype');
+}
+
+body {
+    font-family: 'Automata', sans-serif;
+    background: url('assets/images/background.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #f4f4f4;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    padding: 60px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.logo {
+    width: 230px;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.github-link:hover,
+.youtube-link:hover,
+.discord-link:hover {
+    color: #fff;
+}
+
+.github-link,
+.youtube-link,
+.discord-link {
+    position: absolute;
+    top: 20px;
+    font-size: 2em;
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.github-link {
+    right: 50px;
+}
+
+.youtube-link {
+    right: 100px;
+}
+
+.discord-link {
+    right: 150px;
+}
+
+.title {
+    font-size: 3em;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+.menu-icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 2em;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.menu-icon:hover {
+    color: #fff;
+}
+
+.sidebar {
+    position: fixed;
+    top: 28px; /* Adjusted to float below the header */
+    left: -300px;
+    width: 280px;
+    height: calc(100vh - 50px); /* Full height minus the header height */
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(33px);
+    transition: left 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+    padding: 20px;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Added shadow for floating effect */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar.active {
+    left: 25px; /* Adjusted to float slightly off the edge */
+    transform: translateY(0);
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+}
+
+.sidebar ul li a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 1.5em;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    color: #fff;
+    transform: scale(1.1); /* Hover animation to scale text slightly */
+}
+
+
+.showcase-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+.showcase-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.showcase-item .image {
+    flex: 1;
+    margin-right: 40px;
+}
+
+.showcase-item .image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.showcase-item .image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.showcase-item .info {
+    flex: 1;
+    text-align: left;
+}
+
+.showcase-item .info h3 {
+    font-size: 2em;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.showcase-item .info p {
+    font-size: 1.2em;
+    color: #ccc;
+    margin-bottom: 15px;
+}
+
+.download-info {
+    margin-bottom: 40px;
+}
+
+.download-info p {
+    font-size: 1.2em;
+    color: #ccc;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.download-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.download-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+}
+
+.download-btn:active {
+    transform: translateY(1px);
+}
+
+footer {
+    margin-top: 40px;
+}
+
+.footer-text {
+    font-size: 1em;
+    color: #ccc;
+}
+
+.subtitle {
+    font-size: 1.2em; 
+    color: #ccc;     
+    margin-top: 10px; }
+
+
+.screenshot-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.screenshot-img {
+    max-width: 350px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.screenshot-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.terminal-instruction {
+    font-size: 1.8em;
+    color: #ccc;
+    margin-top: 15px;
+    font-style: italic;
+}
