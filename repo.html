@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnixOS Repo</title>
+    <link rel="stylesheet" href="styles1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css">
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+    <style>
+        @font-face {
+            font-family: 'Automata';
+            src: url('assets/fonts/AUTOMATA.ttf') format('truetype');
+        }
+
+        body {
+            font-family: 'Automata', sans-serif;
+            background: url('assets/images/background.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #f4f4f4;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .repo-container {
+            max-width: 1200px;
+            width: 100%;
+            padding: 60px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            margin-bottom: 40px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo {
+            width: 230px;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .repo-header h1 {
+            font-size: 3em;
+            color: #fff;
+            margin-bottom: 10px;
+            margin-top: -10px;
+        }
+
+        .search-bar {
+            position: relative;
+            margin-bottom: 20px;
+            width: 200px;
+            transition: width 0.3s ease;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 10px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            font-family: 'Automata', sans-serif;
+            transition: width 0.3s ease;
+        }
+
+        .search-bar input:focus {
+            width: 300px;
+        }
+
+        .directory {
+            font-size: 1.2em;
+            color: #ccc;
+            margin-bottom: 20px;
+            cursor: pointer;
+            text-decoration: underline;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .file-list {
+            list-style-type: none;
+            padding: 0;
+            width: 100%;
+            max-width: 800px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .file-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            text-align: center;
+        }
+
+        .file-item:hover {
+            transform: scale(1.05);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .file-item .folder-icon {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+
+        .file-item .file-name {
+            font-size: 1.2em;
+            color: #ccc;
+        }
+
+        .file-content {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .file-content pre {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            overflow-x: auto;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 28px;
+            left: -300px;
+            width: 280px;
+            height: calc(100vh - 50px);
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(33px);
+            transition: left 0.3s ease, transform 0.3s ease;
+            z-index: 1000;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sidebar.active {
+            left: 25px;
+            transform: translateY(0);
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .sidebar ul li {
+            margin: 20px 0;
+        }
+
+        .sidebar ul li a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 1.5em;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .sidebar ul li a:hover {
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .menu-icon {
+            position: absolute;
+            top: 20px;
+            left: -350px;
+            font-size: 2em;
+            color: #ccc;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .menu-icon:hover {
+            color: #fff;
+        }
+
+        .social-links {
+            position: absolute;
+            top: 20px;
+            right: -350px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: #ccc;
+            font-size: 1.5em;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #fff;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container repo-container">
+        <header>
+            <div class="menu-icon" id="menu-icon">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/LearnixOS/LearnixOS" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.youtube.com/@_Learnix" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://discord.gg/ZSDftCgJ" target="_blank">
+                    <i class="fab fa-discord"></i>
+                </a>
+            </div>
+            <img src="assets/images/logo.png" alt="LearnixOS Logo" class="logo">
+            <h1>LearnixOS Repo</h1>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search...">
+            </div>
+        </header>
+        <div class="directory" id="directory">Current Directory: /</div>
+        <ul class="file-list" id="file-list">
+            <!-- File list will be populated here -->
+        </ul>
+        <div class="file-content" id="file-content">
+            <!-- File content will be displayed here -->
+        </div>
+    </div>
+
+    <nav class="sidebar" id="sidebar">
+        <ul>
+	    <li><a href="index.html">Home</a></li>
+	    <li><a href="about.html">About</a></li>
+            <li><a href="download.html">Download</a></li>
+            <li><a href="lxpkg.html">LXPKG</a></li>
+        </ul>
+    </nav>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script>
+        const repoUrl = 'https://api.github.com/repos/LearnixOS/lxos-repo/contents/';
+        const fileList = document.getElementById('file-list');
+        const searchInput = document.getElementById('search-input');
+        const directoryDisplay = document.getElementById('directory');
+        const fileContent = document.getElementById('file-content');
+        const menuIcon = document.getElementById('menu-icon');
+        const sidebar = document.getElementById('sidebar');
+        let currentPath = '';
+
+        async function fetchFiles(path = '') {
+            try {
+                const response = await fetch(repoUrl + path);
+                const data = await response.json();
+                displayFiles(data);
+                directoryDisplay.textContent = `Current Directory: /${path}`;
+                directoryDisplay.dataset.path = path;
+                directoryDisplay.style.animation = 'none';
+                setTimeout(() => {
+                    directoryDisplay.style.animation = '';
+                }, 10);
+            } catch (error) {
+                console.error('Error fetching files:', error);
+            }
+        }
+
+        function displayFiles(files) {
+            fileList.innerHTML = '';
+            files.forEach(file => {
+                const listItem = document.createElement('li');
+                listItem.classList.add('file-item');
+                listItem.innerHTML = `
+                    <i class="fas ${file.type === 'dir' ? 'fa-folder' : 'fa-file'} folder-icon"></i>
+                    <span class="file-name">${file.name}</span>
+                `;
+                listItem.addEventListener('click', () => {
+                    if (file.type === 'dir') {
+                        currentPath = `${currentPath}${file.name}/`;
+                        fetchFiles(currentPath);
+                    } else if (file.name.endsWith('.toml')) {
+                        fetchFileContent(file.download_url);
+                    }
+                });
+                fileList.appendChild(listItem);
+            });
+        }
+
+        async function fetchFileContent(url) {
+            try {
+                const response = await fetch(url);
+                const content = await response.text();
+                fileContent.innerHTML = `<pre><code class="toml">${content}</code></pre>`;
+                hljs.highlightBlock(fileContent.querySelector('pre code'));
+            } catch (error) {
+                console.error('Error fetching file content:', error);
+            }
+        }
+
+        searchInput.addEventListener('input', (event) => {
+            const query = event.target.value.toLowerCase();
+            const filteredFiles = Array.from(fileList.children).filter(item =>
+                item.querySelector('.file-name').textContent.toLowerCase().includes(query)
+            );
+            fileList.innerHTML = '';
+            fileList.append(...filteredFiles);
+        });
+
+        directoryDisplay.addEventListener('click', () => {
+            const path = directoryDisplay.dataset.path;
+            const parentPath = path.split('/').slice(0, -2).join('/') + '/';
+            currentPath = parentPath;
+            fetchFiles(currentPath);
+        });
+
+        menuIcon.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+
+        // Initial fetch
+        fetchFiles();
+    </script>
+</body>
+</html>
+
