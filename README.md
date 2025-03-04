@@ -28,6 +28,8 @@
   ####  Is pre-configured for an i3 and Cinnamon desktop respectively. 🧖‍♂️
   ####  Is completely GPL_3.0, We will remain open source. 🔥
 
+<br><br> <!-- This creates extra space -->
+
 
 <div align="center">
 
