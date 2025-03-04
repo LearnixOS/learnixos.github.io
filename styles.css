@@ -20,15 +20,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
 }
 
 .container {
     max-width: 1200px;
     width: 100%;
-    padding: 60px;
+    padding: 20px;
     background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 25px;
+    border-radius: 15px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     position: relative;
@@ -38,15 +38,26 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     position: relative;
 }
 
 .logo {
-    width: 230px;
+    width: 150px;
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     border-radius: 10px;
+}
+
+.github-link,
+.youtube-link,
+.discord-link {
+    position: absolute;
+    top: 15px;
+    font-size: 1.5em;
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .github-link:hover,
@@ -55,40 +66,29 @@ header {
     color: #fff;
 }
 
-.github-link,
-.youtube-link,
-.discord-link {
-    position: absolute;
-    top: 20px;
-    font-size: 2em;
-    color: #ccc;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
 .github-link {
-    right: 50px;
+    right: 10px;
 }
 
 .youtube-link {
-    right: 100px;
+    right: 50px;
 }
 
 .discord-link {
-    right: 150px;
+    right: 90px;
 }
 
 .title {
-    font-size: 3em;
+    font-size: 2em;
     color: #fff;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .menu-icon {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 2em;
+    top: 15px;
+    left: 15px;
+    font-size: 1.5em;
     color: #ccc;
     cursor: pointer;
     transition: color 0.3s ease;
@@ -100,25 +100,25 @@ header {
 
 .sidebar {
     position: fixed;
-    top: 28px;
-    left: -300px;
-    width: 280px;
-    height: calc(100vh - 50px);
+    top: 10px;
+    left: -100%;
+    width: 70%;
+    max-width: 280px;
+    height: calc(100vh - 20px);
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(33px);
-    transition: left 0.3s ease, transform 0.3s ease;
+    transition: left 0.3s ease;
     z-index: 1000;
-    padding: 20px;
-    border-radius: 15px; 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .sidebar.active {
-    left: 25px; 
-    transform: translateY(0);
+    left: 10px;
 }
 
 .sidebar ul {
@@ -131,13 +131,13 @@ header {
 }
 
 .sidebar ul li {
-    margin: 20px 0;
+    margin: 15px 0;
 }
 
 .sidebar ul li a {
     color: #ccc;
     text-decoration: none;
-    font-size: 1.5em;
+    font-size: 1.2em;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
@@ -146,22 +146,33 @@ header {
     transform: scale(1.1);
 }
 
+.about p {
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+.features h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
 
 .showcase-item {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     width: 100%;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 }
 
 .showcase-item.reverse {
-    flex-direction: row-reverse;
+    flex-direction: column;
 }
 
 .showcase-item .image {
-    flex: 1;
-    margin-right: 40px;
+    flex: none;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 0 15px 0;
 }
 
 .showcase-item .image img {
@@ -178,41 +189,34 @@ header {
 }
 
 .showcase-item .info {
-    flex: 1;
-    text-align: left;
+    flex: none;
+    text-align: center;
 }
 
 .showcase-item .info h3 {
-    font-size: 2em;
+    font-size: 1.5em;
     color: #fff;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .showcase-item .info p {
-    font-size: 1.2em;
+    font-size: 1em;
     color: #ccc;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
-.download-info {
-    margin-bottom: 40px;
-}
-
-.download-info p {
-    font-size: 1.2em;
-    color: #ccc;
-    margin-bottom: 20px;
-    line-height: 1.8;
+.download {
+    margin: 20px 0;
 }
 
 .download-btn {
     display: inline-block;
-    padding: 15px 30px;
+    padding: 10px 20px;
     background-color: rgba(255, 255, 255, 0.1);
     color: white;
     text-decoration: none;
-    font-size: 1.5em;
-    border-radius: 12px;
+    font-size: 1.2em;
+    border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     backdrop-filter: blur(10px);
@@ -229,43 +233,121 @@ header {
 }
 
 footer {
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .footer-text {
-    font-size: 1em;
+    font-size: 0.9em;
     color: #ccc;
 }
 
-.subtitle {
-    font-size: 1.2em; 
-    color: #ccc;     
-    margin-top: 10px; }
+/* Media Queries for Desktop */
+@media (min-width: 768px) {
+    body {
+        padding: 20px;
+    }
 
+    .container {
+        padding: 60px;
+        border-radius: 25px;
+    }
 
-.screenshot-grid {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
+    header {
+        margin-bottom: 40px;
+    }
 
-.screenshot-img {
-    max-width: 350px;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
+    .logo {
+        width: 230px;
+    }
 
-.screenshot-img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-}
+    .github-link,
+    .youtube-link,
+    .discord-link {
+        font-size: 2em;
+        top: 20px;
+    }
 
-.terminal-instruction {
-    font-size: 1.8em;
-    color: #ccc;
-    margin-top: 15px;
-    font-style: italic;
+    .github-link {
+        right: 50px;
+    }
+
+    .youtube-link {
+        right: 100px;
+    }
+
+    .discord-link {
+        right: 150px;
+    }
+
+    .title {
+        font-size: 3em;
+        margin-bottom: 40px;
+    }
+
+    .menu-icon {
+        font-size: 2em;
+        top: 20px;
+        left: 20px;
+    }
+
+    .sidebar {
+        top: 28px;
+        width: 280px;
+    }
+
+    .sidebar.active {
+        left: 25px;
+    }
+
+    .sidebar ul li a {
+        font-size: 1.5em;
+    }
+
+    .about p {
+        font-size: 1.2em;
+    }
+
+    .features h2 {
+        font-size: 2em;
+    }
+
+    .showcase-item {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .showcase-item.reverse {
+        flex-direction: row-reverse;
+    }
+
+    .showcase-item .image {
+        flex: 1;
+        margin-right: 40px;
+    }
+
+    .showcase-item .image img {
+        max-width: 350px;
+    }
+
+    .showcase-item .info {
+        flex: 1;
+        text-align: left;
+    }
+
+    .showcase-item .info h3 {
+        font-size: 2em;
+    }
+
+    .showcase-item .info p {
+        font-size: 1.2em;
+    }
+
+    .download-btn {
+        padding: 15px 30px;
+        font-size: 1.5em;
+    }
+
+    .footer-text {
+        font-size: 1em;
+    }
 }
