@@ -28,22 +28,30 @@
   ###  Is pre-configured for an i3 and Cinnamon desktop respectively.
   ###  Is completely GPL_3.0, We will remain open source. 🔥
 
+
+<div align="center">
+
+<h1>
+      <img src="assets/images/framephone.png" align="left" alt="Preview" width="450" style="display: block; margin: 32px auto; border: 2px solid #555; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);">
+</div>
+</div> 
+
+<div align="right">
+
+### Reasons to use LXOS:
+
+ ###   LXOS is designed to be easy to configure for new and experienced users alike.
+ ###   LXOS is scalable and unique in its implementations, focusing on user-preference and efficiency.
+ ###   Documentation is provided via Github, Youtube, and the OS itself.
+ ###   Why not? You watched LearnixTV, I would trust the OS made after him! 🐧
+
+
 <div align="center">
 
 
 ### **Thanks to the contributions of:**
   - Ping (Opposite34) | Current Head Maintainer of the LearnixOS website
   - (coming soon)
-
-<div align="center">
-
-
-<div align="center">
-
-<h1>
-      <img src="assets/images/framephone.png" align="center" alt="Preview" width="450" style="display: block; margin: 32px auto; border: 2px solid #555; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);">
-</div>
-</div> 
 
 
 # **Status**
