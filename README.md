@@ -53,7 +53,7 @@
 <div align="center">
 
 
-### **Thanks to the contributions of:**
+## **Thanks to the contributions of:**
   - Ping (Opposite34) | Current Head Maintainer of the LearnixOS website
   - (coming soon)
 
