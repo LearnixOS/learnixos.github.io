@@ -25,19 +25,19 @@
 <div align="center">
 
 
+### **Thanks to the contributions of:**
+  - Ping (Opposite34) | Current Head Maintainer of the LearnixOS website
+  - (coming soon)
+
+<div align="center">
+
+
 <div align="center">
 
 <h1>
       <img src="assets/images/framephone.png" align="center" alt="Preview" width="450" style="display: block; margin: 32px auto; border: 2px solid #555; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);">
 </div>
 </div> 
-
-
-### **Thanks to the contributions of:**
-  - Ping (Opposite34) | Current Head Maintainer of the LearnixOS website
-  - (coming soon)
-
-<div align="center">
 
 
 # **Status**
