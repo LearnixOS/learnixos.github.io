@@ -46,12 +46,18 @@
  ####   Why not? You watched LearnixTV, I would trust the OS made after him! 🐧
 
 
+
+
+
+
 <div align="center">
 
 
 ### **Thanks to the contributions of:**
   - Ping (Opposite34) | Current Head Maintainer of the LearnixOS website
   - (coming soon)
+
+<div align="center">
 
 
 # **Status**
