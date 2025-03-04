@@ -17,6 +17,7 @@
 </h1>
 
 <div align="left">
+  
   ## A distribution that 🐧:
   
   #### Is aligned with scalability and accessibility, meant specifically for inexperienced users. 🍉
@@ -35,6 +36,7 @@
 <br><br> <!-- Creates extra space -->
 
 <div align="right">
+  
   ## Reasons to use LXOS 🌸:
 
   #### LXOS is designed to be easy to configure for new and experienced users alike. 🥝
@@ -44,17 +46,17 @@
 </div>
 
 <div align="center">
+  
   <br><br> <!-- Creates extra space -->
   <br><br> <!-- Creates extra space -->
 </div>
 
-<div align="center">
-  ## **Thanks to the contributions of:**
+## **Thanks to the contributions of:**
   - Ping (Opposite34) | Current Head Maintainer of the LearnixOS website
   - (coming soon)
-</div>
 
 <div align="center">
-  # **Status**
-  [![Deploy Hugo site to Pages](https://github.com/LearnixOS/learnixos.github.io/actions/workflows/hugo.yml/badge.svg)](https://github.com/LearnixOS/learnixos.github.io/actions/workflows/hugo.yml)
-</div>
+
+
+# **Status**
+[![Deploy Hugo site to Pages](https://github.com/LearnixOS/learnixos.github.io/actions/workflows/hugo.yml/badge.svg)](https://github.com/LearnixOS/learnixos.github.io/actions/workflows/hugo.yml)
