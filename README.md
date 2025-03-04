@@ -40,10 +40,10 @@
 
 ### Reasons to use LXOS 🌸:
 
-    LXOS is designed to be easy to configure for new and experienced users alike. 🥝
-    LXOS is scalable and unique in its implementations, focusing on user-preference and efficiency. 💆‍♂️
-    Documentation is provided via Github, Youtube, and the OS itself. 🎴
-    Why not? You watched LearnixTV, I would trust the OS made after him! 🐧
+ #   LXOS is designed to be easy to configure for new and experienced users alike. 🥝
+ #   LXOS is scalable and unique in its implementations, focusing on user-preference and efficiency. 💆‍♂️
+ #  Documentation is provided via Github, Youtube, and the OS itself. 🎴
+ #   Why not? You watched LearnixTV, I would trust the OS made after him! 🐧
 
 
 <div align="center">
