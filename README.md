@@ -14,11 +14,18 @@
   </h2>
 </div>
 
+<div align="left">
 
-<div align="center">
+### A distribution that:
+
+  #  Is aligned with scalability and accessibility, meant specifically for inexperienced users.
+  # Is pre-configured for an i3 and Cinnamon desktop respectively.
+  #  An offering to those who are interested in learning about compilation-based distributions, with a custom package manager.
+  #  Offers source-based packages being compiled with pms, our own package manager.
+  #  Is completely GPL_3.0, We will remain open source. 🔥
 
 <h1>
-      <img src="assets/images/laptopframe.png" align="center" alt="Preview" width="650" style="display: block; margin: 32px auto; border: 2px solid #555; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);">
+      <img src="assets/images/laptopframe.png" align="right" alt="Preview" width="650" style="display: block; margin: 32px auto; border: 2px solid #555; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);">
 </div>
 </div> 
 
