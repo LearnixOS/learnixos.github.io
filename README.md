@@ -12,7 +12,7 @@
   </h2>
 </div>
 
-<div style="display: flex; justify-content: space-between;">
+<div style="display: flex; justify-content: space-between; margin-top: 20px;">
   <div style="flex: 1; margin-right: 20px;">
     <h3>A distribution that 🐧:</h3>
     <ul>
