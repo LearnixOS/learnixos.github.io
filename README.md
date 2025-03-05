@@ -52,7 +52,6 @@
   
   <br><br> <!-- Creates extra space -->
   <br><br> <!-- Creates extra space -->
-</div>
 
 <div align="center">
 
