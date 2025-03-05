@@ -36,6 +36,10 @@
 
 <br><br> <!-- Creates extra space -->
 
+
+<br><br> <!-- Creates extra space -->
+
+
 <div align="right">
   
   ## Reasons to use LXOS 🌸:
