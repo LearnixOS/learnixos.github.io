@@ -19,7 +19,6 @@
 <div align="left">
   
   ## A distribution that 🐧:
-  
   #### Is aligned with scalability and accessibility, meant specifically for inexperienced users. 🍉
   #### Is pre-configured for an i3 and Cinnamon desktop respectively. 🧖‍♂️
   
