@@ -22,7 +22,6 @@
   
   #### Is aligned with scalability and accessibility, meant specifically for inexperienced users. 🍉
   #### Is pre-configured for an i3 and Cinnamon desktop respectively. 🧖‍♂️
-  #### Is completely GPL_3.0, We will remain open source. 🔥
   
   <br><br> <!-- Creates extra space -->
 </div>
