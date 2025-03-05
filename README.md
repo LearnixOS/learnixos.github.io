@@ -12,14 +12,14 @@
   </h2>
 </div>
 
-  <br><br> <!-- Creates extra space -->
+  <br> <!-- Creates extra space -->
 
 
 <h1>
   <img src="assets/images/laptopframe.png" align="right" alt="Preview" width="650" style="display: inline-block; margin: 0; border: 2px solid #555; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);">
 </h1>
 
-  <br><br> <!-- Creates extra space -->
+  <br> <!-- Creates extra space -->
 
 
 <div align="left">
@@ -28,7 +28,7 @@
   #### Is aligned with scalability and accessibility, meant specifically for inexperienced users. 🍉
   #### Is pre-configured for an i3 and Cinnamon desktop respectively. 🧖‍♂️
   
-  <br><br> <!-- Creates extra space -->
+  <br> <!-- Creates extra space -->
 </div>
 
 <div align="center">
@@ -38,7 +38,7 @@
 </div>
 
 
-<br><br> <!-- Creates extra space -->
+<br> <!-- Creates extra space -->
 
 
 <div align="right">
@@ -53,8 +53,8 @@
 
 <div align="center">
   
-  <br><br> <!-- Creates extra space -->
-  <br><br> <!-- Creates extra space -->
+  <br> <!-- Creates extra space -->
+  <br> <!-- Creates extra space -->
 
 <div align="center">
 
