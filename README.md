@@ -40,7 +40,7 @@
 
 <div align="right">
   
-  ## Reasons to use LXOS 🌸:
+  ## Reasons to use 𝗟𝗲𝗮𝗿𝗻𝗶𝘅𝗢𝗦 🐧:
 
   #### LXOS is designed to be easy to configure for new and experienced users alike. 🥝
   #### LXOS is scalable and unique in its implementations, focusing on user-preference and efficiency. 💆‍♂️
