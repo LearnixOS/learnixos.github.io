@@ -12,6 +12,9 @@
   </h2>
 </div>
 
+  <br><br> <!-- Creates extra space -->
+
+
 <h1>
   <img src="assets/images/laptopframe.png" align="right" alt="Preview" width="650" style="display: inline-block; margin: 0; border: 2px solid #555; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);">
 </h1>
