@@ -34,8 +34,6 @@
   </h1>
 </div>
 
-<br><br> <!-- Creates extra space -->
-
 
 <br><br> <!-- Creates extra space -->
 
