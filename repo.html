@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LearnixOS | Repo</title>
-    <link rel="stylesheet" href="styles1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css">
     <link rel="icon" href="assets/images/favicon.png" type="image/png">
@@ -12,6 +11,12 @@
         @font-face {
             font-family: 'Automata';
             src: url('assets/fonts/AUTOMATA.ttf') format('truetype');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
@@ -24,16 +29,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 10px;
             margin: 0;
         }
 
         .repo-container {
             max-width: 1200px;
             width: 100%;
-            padding: 60px;
+            padding: 20px;
             background-color: rgba(0, 0, 0, 0.6);
-            border-radius: 25px;
+            border-radius: 15px;
             text-align: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             position: relative;
@@ -43,38 +48,65 @@
         }
 
         header {
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 100%;
         }
 
         .logo {
-            width: 230px;
+            width: 150px;
             height: auto;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             border-radius: 10px;
         }
 
-        .repo-header h1 {
-            font-size: 3em;
+        h1 {
+            font-size: 2em;
             color: #fff;
             margin-bottom: 10px;
             margin-top: -10px;
         }
 
+        .header-controls {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 15px;
+        }
+
+        .back-button {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 10px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .back-button i {
+            font-size: 1.2em;
+            color: #ccc;
+        }
+
+        .back-button:hover {
+            transform: scale(1.05);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
         .search-bar {
-            position: relative;
-            margin-bottom: 20px;
-            width: 200px;
+            width: 100%;
+            max-width: 200px;
             transition: width 0.3s ease;
         }
 
         .search-bar input {
             width: 100%;
-            padding: 10px;
-            font-size: 1em;
+            padding: 8px;
+            font-size: 0.9em;
             border-radius: 10px;
             border: none;
             background-color: rgba(255, 255, 255, 0.1);
@@ -85,15 +117,15 @@
         }
 
         .search-bar input:focus {
-            width: 300px;
+            width: 100%;
+            max-width: 250px;
         }
 
         .directory {
-            font-size: 1.2em;
+            font-size: 1em;
             color: #ccc;
-            margin-bottom: 20px;
-            cursor: pointer;
-            text-decoration: underline;
+            margin-bottom: 15px;
+            text-decoration: none; /* Removed underline */
             opacity: 0;
             animation: fadeIn 1s forwards;
         }
@@ -110,8 +142,8 @@
             width: 100%;
             max-width: 800px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
         }
 
         .file-item {
@@ -119,7 +151,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 15px;
             border-radius: 10px;
             background-color: rgba(255, 255, 255, 0.1);
             transition: transform 0.3s ease, background-color 0.3s ease;
@@ -132,18 +164,19 @@
         }
 
         .file-item .folder-icon {
-            font-size: 1.5em;
-            margin-bottom: 15px;
+            font-size: 1.2em;
+            margin-bottom: 10px;
             color: #ccc;
         }
 
         .file-item .file-name {
-            font-size: 1.2em;
+            font-size: 1em;
             color: #ccc;
+            word-break: break-word;
         }
 
         .file-content {
-            margin-top: 20px;
+            margin-top: 15px;
             width: 100%;
             max-width: 800px;
             position: relative;
@@ -152,26 +185,27 @@
         .file-content pre {
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            padding: 15px;
+            padding: 10px;
             overflow-x: auto;
-            text-align: left; /* Left-align the text */
+            text-align: left;
+            font-size: 0.9em;
         }
 
         .copy-button {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 10px;
+            right: 10px;
             background-color: rgba(255, 255, 255, 0.1);
             border: none;
             border-radius: 5px;
-            padding: 10px;
+            padding: 8px;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            display: none; /* Hide by default */
+            display: none;
         }
 
         .copy-button.visible {
-            display: block; /* Show when viewing TOML file */
+            display: block;
         }
 
         .copy-button:hover {
@@ -180,16 +214,17 @@
 
         .sidebar {
             position: fixed;
-            top: 28px;
-            left: -300px;
-            width: 280px;
-            height: calc(100vh - 50px);
+            top: 10px;
+            left: -100%;
+            width: 80%;
+            max-width: 280px;
+            height: calc(100vh - 20px);
             background-color: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(33px);
-            transition: left 0.3s ease, transform 0.3s ease;
+            transition: left 0.3s ease;
             z-index: 1000;
-            padding: 20px;
-            border-radius: 15px;
+            padding: 15px;
+            border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             display: flex;
             flex-direction: column;
@@ -197,8 +232,7 @@
         }
 
         .sidebar.active {
-            left: 25px;
-            transform: translateY(0);
+            left: 10px;
         }
 
         .sidebar ul {
@@ -211,13 +245,13 @@
         }
 
         .sidebar ul li {
-            margin: 20px 0;
+            margin: 15px 0;
         }
 
         .sidebar ul li a {
             color: #ccc;
             text-decoration: none;
-            font-size: 1.5em;
+            font-size: 1.2em;
             transition: color 0.3s ease, transform 0.3s ease;
         }
 
@@ -228,9 +262,9 @@
 
         .menu-icon {
             position: absolute;
-            top: 20px;
-            left: -350px;
-            font-size: 2em;
+            top: 15px;
+            left: 15px;
+            font-size: 1.5em;
             color: #ccc;
             cursor: pointer;
             transition: color 0.3s ease;
@@ -242,21 +276,224 @@
 
         .social-links {
             position: absolute;
-            top: 20px;
-            right: -350px; 
-	    display: flex;
-            gap: 15px;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            gap: 10px;
         }
 
         .social-links a {
             color: #ccc;
-            font-size: 1.5em;
+            font-size: 1.2em;
             transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .social-links a:hover {
             color: #fff;
             transform: scale(1.1);
+        }
+
+        /* Mobile-specific adjustments */
+        @media (max-width: 767px) {
+            body {
+                padding: 10px;
+            }
+
+            .repo-container {
+                padding: 15px;
+                border-radius: 10px;
+            }
+
+            header {
+                margin-bottom: 15px;
+            }
+
+            .logo {
+                width: 120px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .header-controls {
+                margin-bottom: 10px;
+            }
+
+            .back-button {
+                padding: 6px 10px;
+            }
+
+            .back-button i {
+                font-size: 1em;
+            }
+
+            .search-bar {
+                max-width: 100%;
+            }
+
+            .search-bar input {
+                font-size: 0.8em;
+            }
+
+            .search-bar input:focus {
+                max-width: 100%;
+            }
+
+            .directory {
+                font-size: 0.9em;
+            }
+
+            .file-list {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                gap: 8px;
+            }
+
+            .file-item {
+                padding: 10px;
+            }
+
+            .file-item .folder-icon {
+                font-size: 1em;
+            }
+
+            .file-item .file-name {
+                font-size: 0.9em;
+            }
+
+            .file-content pre {
+                font-size: 0.8em;
+                padding: 8px;
+            }
+
+            .copy-button {
+                top: 8px;
+                right: 8px;
+                padding: 6px;
+            }
+
+            .menu-icon {
+                top: 10px;
+                left: 10px;
+                font-size: 1.2em;
+            }
+
+            .social-links {
+                top: 10px;
+                right: 10px;
+                gap: 8px;
+            }
+
+            .social-links a {
+                font-size: 1em;
+            }
+        }
+
+        /* Desktop adjustments */
+        @media (min-width: 768px) {
+            body {
+                padding: 20px;
+            }
+
+            .repo-container {
+                padding: 60px;
+                border-radius: 25px;
+            }
+
+            header {
+                margin-bottom: 40px;
+            }
+
+            .logo {
+                width: 230px;
+            }
+
+            h1 {
+                font-size: 3em;
+            }
+
+            .header-controls {
+                margin-bottom: 20px;
+            }
+
+            .back-button {
+                padding: 8px 12px;
+            }
+
+            .back-button i {
+                font-size: 1.5em;
+            }
+
+            .search-bar {
+                max-width: 200px;
+            }
+
+            .search-bar input:focus {
+                max-width: 300px;
+            }
+
+            .directory {
+                font-size: 1.2em;
+            }
+
+            .file-list {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 20px;
+            }
+
+            .file-item {
+                padding: 20px;
+            }
+
+            .file-item .folder-icon {
+                font-size: 1.5em;
+            }
+
+            .file-item .file-name {
+                font-size: 1.2em;
+            }
+
+            .file-content pre {
+                padding: 15px;
+            }
+
+            .copy-button {
+                top: 15px;
+                right: 15px;
+                padding: 10px;
+            }
+
+            .sidebar {
+                top: 28px;
+                left: -300px;
+                width: 280px;
+                height: calc(100vh - 50px);
+            }
+
+            .sidebar.active {
+                left: 25px;
+                transform: translateY(0);
+            }
+
+            .sidebar ul li a {
+                font-size: 1.5em;
+            }
+
+            .menu-icon {
+                top: 20px;
+                left: -350px;
+                font-size: 2em;
+            }
+
+            .social-links {
+                top: 20px;
+                right: -350px;
+                gap: 15px;
+            }
+
+            .social-links a {
+                font-size: 1.5em;
+            }
         }
     </style>
 </head>
@@ -279,11 +516,16 @@
             </div>
             <img src="assets/images/logo.png" alt="LearnixOS Logo" class="logo">
             <h1>LearnixOS Repo</h1>
-            <div class="search-bar">
-                <input type="text" id="search-input" placeholder="Search...">
+            <div class="header-controls">
+                <button class="back-button" id="back-button">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="Search...">
+                </div>
             </div>
         </header>
-        <div class="directory" id="directory">Current Directory: /</div>
+        <div class="directory" id="directory">root</div>
         <ul class="file-list" id="file-list">
             <!-- File list will be populated here -->
         </ul>
@@ -295,7 +537,7 @@
 
     <nav class="sidebar" id="sidebar">
         <ul>
-	    <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="download.html">Download</a></li>
             <li><a href="lxpkg.html">LXPKG</a></li>
@@ -312,14 +554,19 @@
         const menuIcon = document.getElementById('menu-icon');
         const sidebar = document.getElementById('sidebar');
         const copyButton = document.getElementById('copy-button');
+        const backButton = document.getElementById('back-button');
         let currentPath = '';
 
         async function fetchFiles(path = '') {
             try {
+                resetFileContent();
                 const response = await fetch(repoUrl + path);
+                if (!response.ok) throw new Error('Failed to fetch repository contents');
                 const data = await response.json();
                 displayFiles(data);
-                directoryDisplay.textContent = `Current Directory: /${path}`;
+                // Clean up path display: remove leading/trailing slashes and simplify
+                const cleanPath = path.replace(/^\/+|\/+$/g, '') || 'root';
+                directoryDisplay.textContent = cleanPath;
                 directoryDisplay.dataset.path = path;
                 directoryDisplay.style.animation = 'none';
                 setTimeout(() => {
@@ -327,6 +574,7 @@
                 }, 10);
             } catch (error) {
                 console.error('Error fetching files:', error);
+                fileList.innerHTML = '<li>Error loading repository contents. Please try again later.</li>';
             }
         }
 
@@ -357,10 +605,15 @@
                 const content = await response.text();
                 fileContent.innerHTML = `<pre><code class="toml">${content}</code></pre>`;
                 hljs.highlightBlock(fileContent.querySelector('pre code'));
-                copyButton.classList.add('visible'); // Show the copy button
+                copyButton.classList.add('visible');
             } catch (error) {
                 console.error('Error fetching file content:', error);
             }
+        }
+
+        function resetFileContent() {
+            fileContent.innerHTML = '';
+            copyButton.classList.remove('visible');
         }
 
         searchInput.addEventListener('input', (event) => {
@@ -372,7 +625,7 @@
             fileList.append(...filteredFiles);
         });
 
-        directoryDisplay.addEventListener('click', () => {
+        backButton.addEventListener('click', () => {
             const path = directoryDisplay.dataset.path;
             const parentPath = path.split('/').slice(0, -2).join('/') + '/';
             currentPath = parentPath;
@@ -392,9 +645,7 @@
             });
         });
 
-        // Initial fetch
         fetchFiles();
     </script>
 </body>
 </html>
-
