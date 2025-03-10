@@ -29,7 +29,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 10px;
+            padding: 20px;
             margin: 0;
         }
 
@@ -50,9 +50,6 @@
         header {
             margin-bottom: 20px;
             position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             width: 100%;
         }
 
@@ -67,7 +64,6 @@
             font-size: 2em;
             color: #fff;
             margin-bottom: 10px;
-            margin-top: -10px;
         }
 
         .header-controls {
@@ -85,6 +81,11 @@
             padding: 8px 12px;
             cursor: pointer;
             transition: transform 0.3s ease, background-color 0.3s ease;
+            display: none; /* Hidden by default */
+        }
+
+        .back-button.visible {
+            display: block; /* Shown when in a subdirectory */
         }
 
         .back-button i {
@@ -110,22 +111,20 @@
             border-radius: 10px;
             border: none;
             background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
             color: #fff;
             font-family: 'Automata', sans-serif;
-            transition: width 0.3s ease;
         }
 
         .search-bar input:focus {
             width: 100%;
             max-width: 250px;
+            outline: none;
         }
 
         .directory {
             font-size: 1em;
             color: #ccc;
             margin-bottom: 15px;
-            text-decoration: none; /* Removed underline */
             opacity: 0;
             animation: fadeIn 1s forwards;
         }
@@ -150,12 +149,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             padding: 15px;
             border-radius: 10px;
             background-color: rgba(255, 255, 255, 0.1);
             transition: transform 0.3s ease, background-color 0.3s ease;
-            text-align: center;
         }
 
         .file-item:hover {
@@ -214,25 +211,22 @@
 
         .sidebar {
             position: fixed;
-            top: 10px;
-            left: -100%;
-            width: 80%;
-            max-width: 280px;
-            height: calc(100vh - 20px);
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(33px);
+            top: 20px;
+            left: -280px;
+            width: 280px;
+            height: calc(100% - 40px);
+            background-color: rgba(0, 0, 0, 0.7);
             transition: left 0.3s ease;
-            z-index: 1000;
             padding: 15px;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            z-index: 1000;
         }
 
         .sidebar.active {
-            left: 10px;
+            left: 20px;
         }
 
         .sidebar ul {
@@ -262,12 +256,13 @@
 
         .menu-icon {
             position: absolute;
-            top: 15px;
-            left: 15px;
+            top: 20px;
+            left: 20px;
             font-size: 1.5em;
             color: #ccc;
             cursor: pointer;
             transition: color 0.3s ease;
+            z-index: 1001;
         }
 
         .menu-icon:hover {
@@ -276,10 +271,11 @@
 
         .social-links {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 20px;
+            right: 20px;
             display: flex;
-            gap: 10px;
+            gap: 15px;
+            z-index: 1001;
         }
 
         .social-links a {
@@ -295,17 +291,8 @@
 
         /* Mobile-specific adjustments */
         @media (max-width: 767px) {
-            body {
-                padding: 10px;
-            }
-
             .repo-container {
                 padding: 15px;
-                border-radius: 10px;
-            }
-
-            header {
-                margin-bottom: 15px;
             }
 
             .logo {
@@ -316,32 +303,12 @@
                 font-size: 1.5em;
             }
 
-            .header-controls {
-                margin-bottom: 10px;
-            }
-
-            .back-button {
-                padding: 6px 10px;
-            }
-
-            .back-button i {
-                font-size: 1em;
-            }
-
             .search-bar {
-                max-width: 100%;
-            }
-
-            .search-bar input {
-                font-size: 0.8em;
+                max-width: 150px;
             }
 
             .search-bar input:focus {
-                max-width: 100%;
-            }
-
-            .directory {
-                font-size: 0.9em;
+                max-width: 200px;
             }
 
             .file-list {
@@ -349,39 +316,28 @@
                 gap: 8px;
             }
 
-            .file-item {
-                padding: 10px;
+            .sidebar {
+                width: 80%;
+                max-width: 280px;
+                top: 10px;
+                left: -100%;
+                height: calc(100% - 20px);
             }
 
-            .file-item .folder-icon {
-                font-size: 1em;
-            }
-
-            .file-item .file-name {
-                font-size: 0.9em;
-            }
-
-            .file-content pre {
-                font-size: 0.8em;
-                padding: 8px;
-            }
-
-            .copy-button {
-                top: 8px;
-                right: 8px;
-                padding: 6px;
+            .sidebar.active {
+                left: 10px;
             }
 
             .menu-icon {
-                top: 10px;
-                left: 10px;
-                font-size: 1.2em;
+                top: 15px;
+                left: 15px;
+                font-size: 1.3em;
             }
 
             .social-links {
-                top: 10px;
-                right: 10px;
-                gap: 8px;
+                top: 15px;
+                right: 15px;
+                gap: 10px;
             }
 
             .social-links a {
@@ -391,104 +347,52 @@
 
         /* Desktop adjustments */
         @media (min-width: 768px) {
-            body {
-                padding: 20px;
-            }
-
             .repo-container {
-                padding: 60px;
-                border-radius: 25px;
-            }
-
-            header {
-                margin-bottom: 40px;
+                padding: 40px;
             }
 
             .logo {
-                width: 230px;
+                width: 200px;
             }
 
             h1 {
-                font-size: 3em;
-            }
-
-            .header-controls {
-                margin-bottom: 20px;
-            }
-
-            .back-button {
-                padding: 8px 12px;
-            }
-
-            .back-button i {
-                font-size: 1.5em;
+                font-size: 2.5em;
             }
 
             .search-bar {
-                max-width: 200px;
+                max-width: 250px;
             }
 
             .search-bar input:focus {
-                max-width: 300px;
-            }
-
-            .directory {
-                font-size: 1.2em;
+                max-width: 350px;
             }
 
             .file-list {
                 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                gap: 20px;
-            }
-
-            .file-item {
-                padding: 20px;
-            }
-
-            .file-item .folder-icon {
-                font-size: 1.5em;
-            }
-
-            .file-item .file-name {
-                font-size: 1.2em;
-            }
-
-            .file-content pre {
-                padding: 15px;
-            }
-
-            .copy-button {
-                top: 15px;
-                right: 15px;
-                padding: 10px;
+                gap: 15px;
             }
 
             .sidebar {
-                top: 28px;
-                left: -300px;
+                top: 20px;
+                left: -280px;
                 width: 280px;
-                height: calc(100vh - 50px);
+                height: calc(100% - 40px);
             }
 
             .sidebar.active {
-                left: 25px;
-                transform: translateY(0);
-            }
-
-            .sidebar ul li a {
-                font-size: 1.5em;
+                left: 20px;
             }
 
             .menu-icon {
                 top: 20px;
-                left: -350px;
-                font-size: 2em;
+                left: 20px;
+                font-size: 1.8em;
             }
 
             .social-links {
                 top: 20px;
-                right: -350px;
-                gap: 15px;
+                right: 20px;
+                gap: 20px;
             }
 
             .social-links a {
@@ -498,7 +402,7 @@
     </style>
 </head>
 <body>
-    <div class="container repo-container">
+    <div class="repo-container">
         <header>
             <div class="menu-icon" id="menu-icon">
                 <i class="fas fa-bars"></i>
@@ -530,7 +434,6 @@
             <!-- File list will be populated here -->
         </ul>
         <div class="file-content" id="file-content">
-            <!-- File content will be displayed here -->
             <button class="copy-button" id="copy-button">Copy</button>
         </div>
     </div>
@@ -564,7 +467,6 @@
                 if (!response.ok) throw new Error('Failed to fetch repository contents');
                 const data = await response.json();
                 displayFiles(data);
-                // Clean up path display: remove leading/trailing slashes and simplify
                 const cleanPath = path.replace(/^\/+|\/+$/g, '') || 'root';
                 directoryDisplay.textContent = cleanPath;
                 directoryDisplay.dataset.path = path;
@@ -572,9 +474,15 @@
                 setTimeout(() => {
                     directoryDisplay.style.animation = '';
                 }, 10);
+                // Show/hide back button based on current path
+                if (path === '') {
+                    backButton.classList.remove('visible');
+                } else {
+                    backButton.classList.add('visible');
+                }
             } catch (error) {
                 console.error('Error fetching files:', error);
-                fileList.innerHTML = '<li>Error loading repository contents. Please try again later.</li>';
+                fileList.innerHTML = '<li>Error loading repository contents.</li>';
             }
         }
 
