@@ -112,11 +112,11 @@ header {
 .sidebar {
     position: fixed;
     top: 15px;
-    left: -85%; /* Slightly wider coverage on mobile */
-    width: 85%;
-    max-width: 280px;
+    left: -100%; /* Fully off-screen by default */
+    width: 100%; /* Full width for mobile */
+    max-width: 300px; /* Maximum width for larger screens */
     height: calc(100vh - 30px);
-    background-color: rgba(0, 0, 0, 0.8); /* Darker for better contrast */
+    background-color: rgba(0, 0, 0, 0.8);
     transition: left 0.3s ease;
     z-index: 1000;
     padding: 15px;
@@ -125,10 +125,11 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    backdrop-filter: blur(10px); /* Blur effect */
 }
 
 .sidebar.active {
-    left: 15px;
+    left: 0; /* Full screen on mobile */
 }
 
 .sidebar ul {
@@ -141,19 +142,51 @@ header {
 }
 
 .sidebar ul li {
-    margin: 12px 0;
+    margin: 15px 0; /* Increased spacing for better touch targets */
 }
 
 .sidebar ul li a {
     color: #ccc;
     text-decoration: none;
-    font-size: 1.1em;
+    font-size: 1.2em; /* Slightly larger font for mobile */
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .sidebar ul li a:hover {
     color: #fff;
     transform: scale(1.05);
+}
+
+/* Media Queries for Desktop */
+@media (min-width: 768px) {
+    .sidebar {
+        width: 300px; /* Fixed width for desktop */
+        left: -300px; /* Off-screen position for desktop */
+    }
+
+    .sidebar.active {
+        left: 30px; /* Positioned slightly inward */
+    }
+
+    .sidebar ul li a {
+        font-size: 1.4em; /* Larger text for desktop */
+    }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 767px) {
+    .sidebar {
+        width: 100%; /* Full width for mobile */
+        left: -100%; /* Fully off-screen by default */
+    }
+
+    .sidebar.active {
+        left: 0; /* Full screen on mobile */
+    }
+
+    .sidebar ul li a {
+        font-size: 1.2em; /* Slightly larger font for mobile */
+    }
 }
 
 /* About Section */
