@@ -16,7 +16,7 @@
             </div>
             <img src="assets/images/logo.png" alt="LearnixOS Logo" class="logo">
             <p class="title">LXPKG</p>
-	    <p class="subtitle">The independent Package Manager for Gnu/Linux Distributions</p>
+            <p class="subtitle">The independent Package Manager for Gnu/Linux Distributions</p>
             <a href="https://github.com/LearnixOS/LearnixOS" target="_blank" class="github-link">
                 <i class="fab fa-github"></i>
             </a>
@@ -30,7 +30,7 @@
 
         <nav class="sidebar" id="sidebar">
             <ul>
-		<li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="download.html">Download</a></li>
                 <li><a href="repo.html">Repo</a></li>
@@ -72,19 +72,41 @@
             </div>
         </section>
 
-<section class="installation">
+        <section class="installation">
             <h2 class="installation-title">INSTALLATION 🍃</h2>
             <div class="code-block">
                 <code>curl -fsSL https://raw.githubusercontent.com/LearnixOS/lxpkg/main/install.sh | bash</code>
             </div>
             <p class="terminal-instruction">Copy this into your Linux Terminal</p>
-        </section>           </div>
         </section>
     </div>
 
     <script>
-        document.getElementById('menu-icon').addEventListener('click', function() {
-            document.getElementById('sidebar').classList.toggle('active');
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebar = document.getElementById('sidebar');
+            const menuIcon = document.getElementById('menu-icon');
+            const content = document.querySelector('.container');
+
+            // Function to close the sidebar
+            function closeSidebar(event) {
+                if (!sidebar.contains(event.target) && event.target !== menuIcon) {
+                    sidebar.classList.remove('active');
+                }
+            }
+
+            // Add event listener to the content area
+            content.addEventListener('click', closeSidebar);
+
+            // Add event listener to toggle the sidebar
+            menuIcon.addEventListener('click', function(event) {
+                event.stopPropagation(); // Prevent the click from closing the sidebar immediately
+                sidebar.classList.toggle('active');
+            });
+
+            // Prevent sidebar from closing when clicking inside it
+            sidebar.addEventListener('click', function(event) {
+                event.stopPropagation();
+            });
         });
     </script>
 </body>
