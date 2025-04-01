@@ -1,0 +1,554 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'panton';
+    src: url('assets/fonts/panton.ttf') format('truetype');
+}
+
+body {
+    font-family: 'panton', sans-serif;
+    background: url('assets/images/background.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #f4f4f4;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Page Wrapper */
+.page-wrapper {
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: auto;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.8));
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sidebar:hover {
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+}
+
+.sidebar .logo {
+    width: 40px;
+    height: auto;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.sidebar .logo:hover {
+    transform: scale(1.1);
+}
+
+.sidebar a {
+    color: #f4f4f4;
+    font-size: 1.8em;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.sidebar a:hover {
+    transform: scale(1.2);
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.sidebar a.active {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+/* Content Wrapper */
+.content-wrapper {
+    flex-grow: 1;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 20px;
+    padding: 40px;
+    margin-left: 100px;
+    margin-right: 0;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.8));
+    width: calc(100% - 100px);
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Features Section */
+.features h2 {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.feature-card:hover {
+    transform: scale(1.05);
+}
+
+.feature-card img {
+    width: 100%;
+    max-width: 150px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 1em;
+}
+
+/* Mission Section */
+.mission {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.mission h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.mission p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #ddd;
+    line-height: 1.6;
+}
+
+/* Community Section */
+.community {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.community h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.community p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.community .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.community .social-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.community .social-link:hover {
+    color: #0080FF;
+    transform: scale(1.1);
+}
+
+/* LXPKG Styles */
+.showcase {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.showcase-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.showcase-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.showcase-item .image img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.showcase-item .image img:hover {
+    transform: scale(1.05);
+}
+
+.showcase-item .info h2 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.showcase-item .info ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.showcase-item .info ul li {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.showcase-item .info ul li:before {
+    content: "•";
+    color: #fff;
+    position: absolute;
+    left: -15px;
+}
+
+/* Installation Section */
+.installation {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.installation-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.code-block {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-bottom: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.terminal-instruction {
+    font-size: 1.1em;
+    color: #ccc;
+}
+
+/* Repo Styles */
+.header-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 15px;
+}
+
+.back-button {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 10px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    display: none;
+    margin-right: auto;
+}
+
+.back-button.visible {
+    display: block;
+}
+
+.back-button i {
+    font-size: 1.2em;
+    color: #ccc;
+}
+
+.back-button:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.search-bar {
+    width: 100%;
+    max-width: 120px;
+    transition: width 0.3s ease;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 8px;
+    font-size: 0.9em;
+    border-radius: 10px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-family: 'panton', sans-serif;
+}
+
+.search-bar input:focus {
+    width: 100%;
+    max-width: 250px;
+    outline: none;
+}
+
+.directory {
+    font-size: 1em;
+    color: #ccc;
+    margin-bottom: 15px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.file-list {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.file-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.file-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.file-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+.file-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.file-item:hover {
+    transform: scale(1.01);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.file-item .folder-icon {
+    font-size: 1.2em;
+    margin-right: 10px;
+    color: #ccc;
+}
+
+.file-item .file-name {
+    font-size: 1em;
+    color: #ccc;
+    word-break: break-word;
+}
+
+.file-content {
+    margin-top: 15px;
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.file-content pre {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 10px;
+    overflow-x: auto;
+    text-align: left;
+    font-size: 0.9em;
+}
+
+.copy-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: none;
+}
+
+.copy-button.visible {
+    display: block;
+}
+
+.copy-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Call-to-Action Section */
+.call-to-action {
+    text-align: center;
+    margin-top: 40px; /* Adds space between the main content and the button */
+}
+
+.call-to-action .btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 1.2em;
+}
+
+.call-to-action .btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+    body {
+        padding: 10px;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: 60px;
+        top: 0;
+        left: 0;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px;
+        transform: none;
+    }
+
+    .content-wrapper {
+        margin-left: 0;
+        margin-top: 80px;
+        width: 100%;
+    }
+
+    .showcase-item {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .showcase-item .image img {
+        max-width: 100%;
+    }
+
+    .search-bar {
+        max-width: 150px;
+    }
+
+    .search-bar input:focus {
+        max-width: 200px;
+    }
+
+    .file-list {
+        max-height: 400px;
+    }
+}

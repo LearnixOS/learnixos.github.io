@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnixOS | Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <a href="index.html" class="logo-link"><img src="assets/images/logo.png" alt="LearnixOS Logo" class="logo"></a>
+            <a href="index.html" :class="{ 'active': currentPage === 'index' }"><i class="fas fa-home"></i></a>
+            <a href="about.html" :class="{ 'active': currentPage === 'about' }"><i class="fas fa-info"></i></a>
+            <a href="repo.html" :class="{ 'active': currentPage === 'repo' }"><i class="fas fa-box"></i></a>
+            <a href="slimtools.html" :class="{ 'active': currentPage === 'slimtools' }"><i class="fas fa-tools"></i></a>
+            <a href="download.html" :class="{ 'active': currentPage === 'download' }"><i class="fas fa-download"></i></a>
+            <a href="lxpkg.html" :class="{ 'active': currentPage === 'lxpkg' }"><i class="fas fa-cube"></i></a>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="content-wrapper">
+            <section class="hero">
+                <div class="hero-content">
+                    <div class="text-section">
+                        <h1>Welcome to LearnixOS</h1>
+                        <p>The last distro you'll ever need. Say goodbye to distro-hopping with beginner-friendly and advanced options.</p>
+                    </div>
+                    <div class="image-section">
+                        <img src="assets/images/home-feature1.png" alt="             " class="hero-image">
+                    </div>
+                </div>
+            </section>
+
+            <section class="features">
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <img src="assets/images/soon1.png" alt="Accessibility">
+                        <h3>Accessibility</h3>
+                        <p>Made with accessibility in mind for newer Linux users ⚙️</p>
+                    </div>
+                    <div class="feature-card">
+                        <img src="assets/images/soon1.png" alt="Pre-configured Desktops">
+                        <h3>Pre-configured Desktops</h3>
+                        <p>Choose i3 or Cinnamon desktop 🖥️</p>
+                    </div>
+                    <div class="feature-card">
+                        <img src="assets/images/soon1.png" alt="Custom Coreutils">
+                        <h3>Custom Coreutils</h3>
+                        <p>Lightweight and efficient utilities developed in-house 🔧</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="call-to-action">
+                <a href="download.html" class="btn">Download Now</a>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
