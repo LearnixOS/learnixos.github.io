@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnixOS | Changelog</title>
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css">
+    <style>
+        /* Reset Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @font-face {
+            font-family: 'panton';
+            src: url('assets/fonts/panton.ttf') format('truetype');
+        }
+
+        body {
+            font-family: 'panton', 'Arial', sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Moving Gradient Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, #0a0a0a, #0a1a2f, #1a2a4f, #102a5f, #0a0a0a);
+            background-size: 400% 400%;
+            animation: gradient 8s ease infinite;
+            z-index: -1;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(135deg, rgba(10, 26, 47, 0.95), rgba(0, 0, 0, 0.85));
+            backdrop-filter: blur(40px);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar .logo-link {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            height: 55px;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar .logo:hover {
+            transform: scale(1.1);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #e0e0e0;
+            font-size: 1.8rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .nav-toggle .fa-times {
+            display: none;
+        }
+
+        .nav-toggle.active .fa-bars {
+            display: none;
+        }
+
+        .nav-toggle.active .fa-times {
+            display: inline;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 0.8rem 1.4rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid transparent;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: linear-gradient(135deg, rgba(74, 144, 226, 0.4), rgba(0, 0, 0, 0.4));
+            color: #4a90e2;
+            border: 1px solid rgba(74, 144, 226, 0.3);
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+            padding: 2rem;
+        }
+
+        .content-wrapper {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.75), rgba(10, 26, 47, 0.75));
+            backdrop-filter: blur(40px);
+            border-radius: 25px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            color: #4a90e2;
+            margin-bottom: 1.2rem;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+            text-align: center;
+        }
+
+        /* Header Controls */
+        .header-controls {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 15px;
+        }
+
+        .back-button {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.25));
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(40px);
+            border-radius: 10px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: none;
+            margin-right: auto;
+        }
+
+        .back-button.visible {
+            display: block;
+        }
+
+        .back-button i {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+        }
+
+        .back-button:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.35));
+            transform: scale(1.05);
+        }
+
+        .search-bar {
+            width: 100%;
+            max-width: 120px;
+            transition: width 0.3s ease;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 8px;
+            font-size: 1rem;
+            border-radius: 10px;
+            border: none;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.25));
+            backdrop-filter: blur(40px);
+            color: #e0e0e0;
+            font-family: 'panton', sans-serif;
+        }
+
+        .search-bar input:focus {
+            max-width: 250px;
+            outline: none;
+        }
+
+        /* Directory */
+        .directory {
+            font-size: 1.4rem;
+            color: #b0b0b0;
+            margin-bottom: 15px;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* Commit List */
+        .commit-list {
+            list-style-type: none;
+            padding: 0;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .commit-list::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .commit-list::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .commit-list::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+        }
+
+        .commit-list::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .commit-item {
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.25));
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(40px);
+            transition: all 0.3s ease;
+            margin-bottom: 10px;
+        }
+
+        .commit-item:hover {
+            transform: scale(1.01);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.35));
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .commit-item strong {
+            font-size: 1.4rem;
+            color: #4a90e2;
+        }
+
+        .commit-item .commit-message {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            word-break: break-word;
+        }
+
+        .commit-item .meta-info {
+            font-size: 1rem;
+            color: #b0b0b0;
+            margin-top: 5px;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(135deg, #4a90e2, #357abd);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #357abd, #2a639a);
+        }
+
+        .back-to-top i {
+            font-size: 1.6rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(135deg, rgba(10, 26, 47, 0.95), rgba(0, 0, 0, 0.85));
+                backdrop-filter: blur(40px);
+                padding: 80px 2rem 2rem;
+                z-index: 1000;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .nav-links.active {
+                display: flex;
+                transform: translateX(0);
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 1rem;
+                width: 100%;
+                justify-content: center;
+                border-radius: 10px;
+            }
+
+            main {
+                margin-top: 100px;
+            }
+
+            .content-wrapper {
+                padding: 2.5rem;
+            }
+
+            header h1 {
+                font-size: 2.6rem;
+            }
+
+            .commit-list {
+                max-height: 400px;
+            }
+
+            .search-bar input {
+                font-size: 0.9rem;
+            }
+
+            .directory {
+                font-size: 1.2rem;
+            }
+
+            .commit-item .commit-message {
+                font-size: 1rem;
+            }
+
+            .commit-item .meta-info {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar .logo {
+                height: 45px;
+            }
+
+            main {
+                margin-top: 100px;
+            }
+
+            .content-wrapper {
+                padding: 1.5rem;
+            }
+
+            .back-to-top {
+                width: 45px;
+                height: 45px;
+            }
+
+            .back-to-top i {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* Scroll Behavior for Back to Top */
+        @media (prefers-reduced-motion: no-preference) {
+            html {
+                scroll-behavior: smooth;
+            }
+        }
+
+        /* JavaScript for Back to Top and Nav Toggle */
+        body:not(.no-js) {
+            .back-to-top {
+                display: none;
+            }
+
+            .back-to-top.visible {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo-link"><img src="assets/images/logo.png" alt="LearnixOS Logo" class="logo"></a>
+        <button class="nav-toggle"><i class="fas fa-bars"></i><i class="fas fa-times"></i></button>
+        <div class="nav-links">
+            <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
+            
+            <a href="repo.html"><i class="fas fa-box"></i> Packages</a>
+            <a href="changelog.html"><i class="fas fa-clock"></i> Changelog</a>
+            <a href="slimtools.html"><i class="fas fa-tools"></i> SlimTools</a>
+            <a href="lxpkg.html"><i class="fas fa-cube"></i> LXPKG</a>
+            <a href="changelog.html"><i class="fas fa-clock"></i> Changelog</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="content-wrapper">
+            <header>
+                <h1>LearnixOS Changelog</h1>
+                <div class="header-controls">
+                    <button class="back-button" id="back-button">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <div class="search-bar">
+                        <input type="text" id="search-input" placeholder="Search...">
+                    </div>
+                </div>
+            </header>
+            <div class="directory" id="directory">Latest Changes</div>
+            <ul class="commit-list" id="commit-list">
+                <!-- Commits will be populated here -->
+            </ul>
+        </div>
+    </main>
+
+    <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"><i class="fas fa-arrow-up"></i></button>
+
+    <script>
+        const orgName = 'LearnixOS';
+        const apiUrl = `https://api.github.com/orgs/${orgName}/repos`;
+        const commitList = document.getElementById('commit-list');
+        const searchInput = document.getElementById('search-input');
+        const backButton = document.getElementById('back-button');
+
+        async function fetchRepositories() {
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) throw new Error('Failed to fetch repositories');
+                const repos = await response.json();
+                return repos.map(repo => repo.name);
+            } catch (error) {
+                console.error('Error fetching repositories:', error);
+                commitList.innerHTML = '<li>Error loading changelog.</li>';
+                return [];
+            }
+        }
+
+        async function fetchCommits(repoName) {
+            try {
+                const commitsUrl = `https://api.github.com/repos/${orgName}/${repoName}/commits?per_page=5`;
+                const response = await fetch(commitsUrl);
+                if (!response.ok) throw new Error(`Failed to fetch commits for ${repoName}`);
+                const commits = await response.json();
+                return commits.map(commit => ({
+                    message: commit.commit.message,
+                    author: commit.commit.author.name,
+                    date: commit.commit.author.date
+                }));
+            } catch (error) {
+                console.error(`Error fetching commits for ${repoName}:`, error);
+                return [];
+            }
+        }
+
+        function displayCommits(commitsByRepo) {
+            commitList.innerHTML = '';
+            commitsByRepo.forEach(({ repo, commits }) => {
+                if (commits.length === 0) return;
+
+                const repoHeader = document.createElement('div');
+                repoHeader.classList.add('commit-item');
+                repoHeader.innerHTML = `<strong>${repo}</strong>`;
+                commitList.appendChild(repoHeader);
+
+                commits.forEach(commit => {
+                    const commitItem = document.createElement('li');
+                    commitItem.classList.add('commit-item');
+
+                    const commitMessage = document.createElement('div');
+                    commitMessage.classList.add('commit-message');
+                    commitMessage.textContent = commit.message;
+
+                    const metaInfo = document.createElement('div');
+                    metaInfo.classList.add('meta-info');
+                    metaInfo.textContent = `By ${commit.author} on ${new Date(commit.date).toLocaleDateString()}`;
+
+                    commitItem.appendChild(commitMessage);
+                    commitItem.appendChild(metaInfo);
+                    commitList.appendChild(commitItem);
+                });
+            });
+        }
+
+        async function generateChangelog() {
+            const repos = await fetchRepositories();
+            const commitsByRepo = [];
+
+            for (const repo of repos) {
+                const commits = await fetchCommits(repo);
+                if (commits.length > 0) {
+                    commitsByRepo.push({ repo, commits });
+                }
+            }
+
+            commitsByRepo.sort((a, b) => {
+                const lastCommitA = new Date(a.commits[0].date);
+                const lastCommitB = new Date(b.commits[0].date);
+                return lastCommitB - lastCommitA;
+            });
+
+            displayCommits(commitsByRepo);
+        }
+
+        searchInput.addEventListener('input', (event) => {
+            const query = event.target.value.toLowerCase();
+            const filteredItems = Array.from(commitList.children).filter(item =>
+                item.textContent.toLowerCase().includes(query)
+            );
+            commitList.innerHTML = '';
+            commitList.append(...filteredItems);
+        });
+
+        backButton.addEventListener('click', () => {
+            location.reload();
+        });
+
+        // Back to Top Button Visibility
+        window.addEventListener('scroll', () => {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Hamburger Menu Toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu on outside click
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+
+        generateChangelog();
+    </script>
+</body>
+</html>
