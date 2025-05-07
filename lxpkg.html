@@ -7,18 +7,26 @@
     <link rel="icon" href="assets/images/favicon.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles1.css">
+    <link rel="preload" href="assets/fonts/panton.woff2" as="font" type="font/woff2" crossorigin>
 </head>
 <body>
     <nav class="navbar">
-        <a href="index.html" class="logo-link"><img src="assets/images/logo.png" alt="LearnixOS Logo" class="logo"></a>
-        <button class="nav-toggle"><i class="fas fa-bars"></i><i class="fas fa-times"></i></button>
+        <a href="index.html" class="logo-link">
+            <picture>
+                <source srcset="assets/images/logo.webp" type="image/webp">
+                <img src="assets/images/logo.webp" alt="LearnixOS Logo" class="logo">
+            </picture>
+        </a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-times"></i>
+        </button>
         <div class="nav-links">
-            <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
-            
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
             <a href="repo.html"><i class="fas fa-box"></i> Packages</a>
             <a href="changelog.html"><i class="fas fa-clock"></i> Changelog</a>
             <a href="slimtools.html"><i class="fas fa-tools"></i> SlimTools</a>
-            <a href="lxpkg.html"><i class="fas fa-cube"></i> LXPKG</a>
+            <a href="lxpkg.html" class="active"><i class="fas fa-cube"></i> LXPKG</a>
         </div>
     </nav>
 
@@ -30,7 +38,10 @@
                     <p>The independent package manager for GNU/Linux distributions, designed for speed and simplicity.</p>
                 </div>
                 <div class="image-section">
-                    <img src="assets/images/66.png" alt="LXPKG Screenshot" class="hero-image" onerror="this.src='assets/images/fallback.png'">
+                    <picture>
+                        <source srcset="assets/images/build.webp" type="image/webp">
+                        <img src="assets/images/build.webp" alt="LXPKG Screenshot" class="hero-image">
+                    </picture>
                 </div>
             </div>
         </section>
@@ -38,7 +49,10 @@
         <section class="showcase">
             <div class="showcase-item">
                 <div class="image">
-                    <img src="assets/images/34.png" alt="LXPKG Features" onerror="this.src='assets/images/fallback.png'">
+                    <picture>
+                        <source srcset="assets/images/installed.webp" type="image/webp">
+                        <img src="assets/images/installed.webp" alt="LXPKG Features" class="showcase-image" loading="lazy">
+                    </picture>
                 </div>
                 <div class="info">
                     <h2>Features 📋</h2>
@@ -56,7 +70,10 @@
 
             <div class="showcase-item reverse">
                 <div class="image">
-                    <img src="assets/images/45.png" alt="LXPKG Commands" onerror="this.src='assets/images/fallback.png'">
+                    <picture>
+                        <source srcset="assets/images/search.webp" type="image/webp">
+                        <img src="assets/images/search.webp" alt="LXPKG Commands" class="showcase-image" loading="lazy">
+                    </picture>
                 </div>
                 <div class="info">
                     <h2>⌨️ Commands</h2>
@@ -90,5 +107,62 @@
     </footer>
 
     <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"><i class="fas fa-arrow-up"></i></button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM loaded for lxpkg.html');
+            const navToggle = document.querySelector('.nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (!navToggle || !navLinks) {
+                console.error('Navigation elements not found:', { navToggle, navLinks });
+                return;
+            }
+
+            console.log('Nav toggle found:', navToggle);
+            navToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log('Nav toggle clicked');
+                navToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                navToggle.setAttribute('aria-expanded', navToggle.classList.contains('active'));
+                console.log('Nav state:', {
+                    toggleActive: navToggle.classList.contains('active'),
+                    linksActive: navLinks.classList.contains('active')
+                });
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    console.log('Nav link clicked:', link.textContent);
+                    navToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+                    console.log('Clicked outside nav');
+                    navToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            let timeout;
+            window.addEventListener('scroll', () => {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => {
+                    const backToTop = document.querySelector('.back-to-top');
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }, 100);
+            });
+        });
+    </script>
 </body>
 </html>
