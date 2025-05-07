@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css">
     <style>
-        /* Reset Styles */
         * {
             margin: 0;
             padding: 0;
@@ -17,7 +16,9 @@
 
         @font-face {
             font-family: 'panton';
-            src: url('assets/fonts/panton.ttf') format('truetype');
+            src: url('assets/fonts/panton.woff2') format('woff2'),
+                 url('assets/fonts/panton.woff') format('woff');
+            font-display: swap;
         }
 
         body {
@@ -26,10 +27,8 @@
             color: #e0e0e0;
             min-height: 100vh;
             overflow-x: hidden;
-            position: relative;
         }
 
-        /* Moving Gradient Background */
         body::before {
             content: '';
             position: fixed;
@@ -37,56 +36,47 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(-45deg, #0a0a0a, #0a1a2f, #1a2a4f, #102a5f, #0a0a0a);
-            background-size: 400% 400%;
-            animation: gradient 8s ease infinite;
+            background: linear-gradient(-45deg, #0a0a0a, #0a1a2f);
             z-index: -1;
         }
 
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Navbar */
         .navbar {
-            background: linear-gradient(135deg, rgba(10, 26, 47, 0.95), rgba(0, 0, 0, 0.85));
-            backdrop-filter: blur(40px);
-            padding: 1rem 2rem;
+            background: #0a1a2f;
+            padding: 1rem 1.5rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid #4a90e2;
         }
 
         .navbar .logo-link {
             display: flex;
             align-items: center;
+            z-index: 1002;
         }
 
         .navbar .logo {
-            height: 55px;
-            transition: transform 0.3s ease;
+            height: 45px;
+            transition: transform 0.2s ease;
         }
 
         .navbar .logo:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .nav-toggle {
-            display: none;
             background: none;
             border: none;
             color: #e0e0e0;
             font-size: 1.8rem;
             cursor: pointer;
-            z-index: 1001;
+            padding: 0.75rem;
+            z-index: 1002;
+            display: none;
         }
 
         .nav-toggle .fa-times {
@@ -103,133 +93,101 @@
 
         .nav-links {
             display: flex;
-            gap: 1.8rem;
+            gap: 1.5rem;
             align-items: center;
+            z-index: 1001;
         }
 
         .nav-links a {
             color: #e0e0e0;
             text-decoration: none;
-            font-size: 1.1rem;
-            padding: 0.8rem 1.4rem;
-            border-radius: 12px;
-            transition: all 0.3s ease;
+            font-size: 1rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            transition: background 0.2s ease;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            border: 1px solid transparent;
         }
 
         .nav-links a:hover,
         .nav-links a.active {
-            background: linear-gradient(135deg, rgba(74, 144, 226, 0.4), rgba(0, 0, 0, 0.4));
-            color: #4a90e2;
-            border: 1px solid rgba(74, 144, 226, 0.3);
+            background: #357abd;
         }
 
-        /* Main Content */
         main {
-            margin-top: 80px;
-            padding: 2rem;
+            margin-top: 70px;
+            padding: 1.5rem;
         }
 
         .content-wrapper {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.75), rgba(10, 26, 47, 0.75));
-            backdrop-filter: blur(40px);
-            border-radius: 25px;
-            padding: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            background: #0a1a2f;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         header h1 {
-            font-size: 3.5rem;
+            font-size: 2.8rem;
             color: #4a90e2;
-            margin-bottom: 1.2rem;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+            margin-bottom: 1rem;
             text-align: center;
         }
 
-        /* Header Controls */
         .header-controls {
             display: flex;
             justify-content: flex-end;
-            align-items: center;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto 15px;
+            margin-bottom: 1rem;
         }
 
         .back-button {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.25));
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(40px);
-            border-radius: 10px;
-            padding: 8px 12px;
+            background: #1a2b4a;
+            border: none;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
             cursor: pointer;
-            transition: all 0.3s ease;
+            color: #e0e0e0;
+            transition: background 0.2s ease;
+            margin-right: 1rem;
             display: none;
-            margin-right: auto;
         }
 
         .back-button.visible {
             display: block;
         }
 
-        .back-button i {
-            font-size: 1.2rem;
-            color: #e0e0e0;
-        }
-
         .back-button:hover {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.35));
-            transform: scale(1.05);
-        }
-
-        .search-bar {
-            width: 100%;
-            max-width: 120px;
-            transition: width 0.3s ease;
+            background: #357abd;
         }
 
         .search-bar input {
-            width: 100%;
-            padding: 8px;
+            padding: 0.5rem;
             font-size: 1rem;
-            border-radius: 10px;
+            border-radius: 8px;
             border: none;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.25));
-            backdrop-filter: blur(40px);
+            background: #1a2b4a;
             color: #e0e0e0;
-            font-family: 'panton', sans-serif;
+            width: 120px;
+            transition: width 0.3s ease;
         }
 
         .search-bar input:focus {
-            max-width: 250px;
+            width: 200px;
             outline: none;
         }
 
-        /* Directory */
         .directory {
             font-size: 1.4rem;
             color: #b0b0b0;
-            margin-bottom: 15px;
             text-align: center;
-            opacity: 0;
-            animation: fadeIn 1s forwards;
+            margin-bottom: 1rem;
         }
 
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-
-        /* File List */
         .file-list {
-            list-style-type: none;
+            list-style: none;
             padding: 0;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
             max-height: 600px;
             overflow-y: auto;
         }
@@ -239,40 +197,36 @@
         }
 
         .file-list::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.1);
+            background: #1a2b4a;
             border-radius: 10px;
         }
 
         .file-list::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.3);
+            background: #357abd;
             border-radius: 10px;
         }
 
         .file-list::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 255, 255, 0.5);
+            background: #4a90e2;
         }
 
         .file-item {
             display: flex;
             align-items: center;
-            padding: 15px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.25));
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(40px);
-            transition: all 0.3s ease;
-            margin-bottom: 10px;
+            padding: 1rem;
+            border-radius: 8px;
+            background: #1a2b4a;
+            margin-bottom: 0.5rem;
+            transition: background 0.2s ease;
         }
 
         .file-item:hover {
-            transform: scale(1.01);
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.35));
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            background: #357abd;
         }
 
         .file-item .folder-icon {
             font-size: 1.2rem;
-            margin-right: 10px;
+            margin-right: 0.5rem;
             color: #e0e0e0;
         }
 
@@ -282,38 +236,30 @@
             word-break: break-word;
         }
 
-        /* File Content */
         .file-content {
-            margin-top: 15px;
-            width: 100%;
-            max-width: 800px;
+            margin-top: 1rem;
             position: relative;
-            margin: 0 auto;
         }
 
         .file-content pre {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.25));
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(40px);
-            border-radius: 10px;
-            padding: 10px;
+            background: #1a2b4a;
+            border-radius: 8px;
+            padding: 1rem;
             overflow-x: auto;
-            text-align: left;
             font-size: 0.9rem;
         }
 
-        /* Copy Button */
         .copy-button {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            background: linear-gradient(135deg, #4a90e2, #357abd);
+            top: 0.5rem;
+            right: 0.5rem;
+            background: #4a90e2;
             border: none;
             border-radius: 5px;
-            padding: 8px;
+            padding: 0.5rem;
             cursor: pointer;
             color: #fff;
-            transition: all 0.3s ease;
+            transition: background 0.2s ease;
             display: none;
         }
 
@@ -322,27 +268,25 @@
         }
 
         .copy-button:hover {
-            background: linear-gradient(135deg, #357abd, #2a639a);
-            transform: scale(1.05);
+            background: #357abd;
         }
 
-        /* Back to Top Button */
         .back-to-top {
             position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: linear-gradient(135deg, #4a90e2, #357abd);
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background: #4a90e2;
             color: #fff;
             border: none;
             border-radius: 50%;
-            width: 55px;
-            height: 55px;
+            width: 50px;
+            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             opacity: 0;
-            transition: opacity 0.3s ease, transform 0.3s ease;
+            transition: opacity 0.2s ease, background 0.2s ease;
         }
 
         .back-to-top.visible {
@@ -350,19 +294,16 @@
         }
 
         .back-to-top:hover {
-            transform: scale(1.1);
-            background: linear-gradient(135deg, #357abd, #2a639a);
+            background: #357abd;
         }
 
         .back-to-top i {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .navbar {
-                padding: 1rem;
-                flex-wrap: wrap;
+                padding: 0.8rem 1rem;
             }
 
             .nav-toggle {
@@ -377,37 +318,38 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background: linear-gradient(135deg, rgba(10, 26, 47, 0.95), rgba(0, 0, 0, 0.85));
-                backdrop-filter: blur(40px);
-                padding: 80px 2rem 2rem;
-                z-index: 1000;
+                background: #0a1a2f !important;
+                padding: 80px 1.5rem 1.5rem;
+                z-index: 1001;
                 transform: translateX(-100%);
                 transition: transform 0.3s ease;
             }
 
             .nav-links.active {
-                display: flex;
+                display: flex !important;
                 transform: translateX(0);
+                background: #0a1a2f !important;
             }
 
             .nav-links a {
                 font-size: 1.2rem;
                 padding: 1rem;
                 width: 100%;
-                justify-content: center;
-                border-radius: 10px;
+                text-align: center;
+                border-radius: 6px;
+                background: #1a2b4a;
             }
 
             main {
-                margin-top: 100px;
+                margin-top: 60px;
             }
 
             .content-wrapper {
-                padding: 2.5rem;
+                padding: 1.5rem;
             }
 
             header h1 {
-                font-size: 2.6rem;
+                font-size: 2.2rem;
             }
 
             .file-list {
@@ -433,54 +375,59 @@
 
         @media (max-width: 480px) {
             .navbar .logo {
-                height: 45px;
+                height: 40px;
             }
 
-            main {
-                margin-top: 100px;
-            }
-
-            .content-wrapper {
-                padding: 1.5rem;
+            .nav-toggle {
+                font-size: 1.6rem;
+                padding: 0.5rem;
             }
 
             .back-to-top {
-                width: 45px;
-                height: 45px;
+                width: 40px;
+                height: 40px;
             }
 
             .back-to-top i {
-                font-size: 1.4rem;
+                font-size: 1.2rem;
             }
         }
 
-        /* Scroll Behavior for Back to Top */
         @media (prefers-reduced-motion: no-preference) {
             html {
                 scroll-behavior: smooth;
             }
         }
 
-        /* JavaScript for Back to Top and Nav Toggle */
-        body:not(.no-js) {
-            .back-to-top {
-                display: none;
-            }
+        body:not(.no-js) .back-to-top {
+            display: none;
+        }
 
-            .back-to-top.visible {
-                display: flex;
-            }
+        body:not(.no-js) .back-to-top.visible {
+            display: flex;
+        }
+
+        .nav-toggle:focus, .nav-links a:focus, .back-button:focus, .copy-button:focus, .back-to-top:focus {
+            outline: 2px solid #4a90e2;
+            outline-offset: 2px;
         }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <a href="index.html" class="logo-link"><img src="assets/images/logo.png" alt="LearnixOS Logo" class="logo"></a>
-        <button class="nav-toggle"><i class="fas fa-bars"></i><i class="fas fa-times"></i></button>
+        <a href="index.html" class="logo-link">
+            <picture>
+                <source srcset="assets/images/logo.webp" type="image/webp">
+                <img src="assets/images/logo.webp" alt="LearnixOS Logo" class="logo">
+            </picture>
+        </a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-times"></i>
+        </button>
         <div class="nav-links">
-            <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
-            
-            <a href="repo.html"><i class="fas fa-box"></i> Packages</a>
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="repo.html" class="active"><i class="fas fa-box"></i> Packages</a>
             <a href="changelog.html"><i class="fas fa-clock"></i> Changelog</a>
             <a href="slimtools.html"><i class="fas fa-tools"></i> SlimTools</a>
             <a href="lxpkg.html"><i class="fas fa-cube"></i> LXPKG</a>
@@ -533,10 +480,6 @@
                 const cleanPath = path.replace(/^\/+|\/+$/g, '') || 'root';
                 directoryDisplay.textContent = cleanPath;
                 directoryDisplay.dataset.path = path;
-                directoryDisplay.style.animation = 'none';
-                setTimeout(() => {
-                    directoryDisplay.style.animation = '';
-                }, 10);
                 if (path === '') {
                     backButton.classList.remove('visible');
                 } else {
@@ -611,7 +554,6 @@
             });
         });
 
-        // Back to Top Button Visibility
         window.addEventListener('scroll', () => {
             const backToTop = document.querySelector('.back-to-top');
             if (window.scrollY > 300) {
@@ -621,27 +563,27 @@
             }
         });
 
-        // Hamburger Menu Toggle
         const navToggle = document.querySelector('.nav-toggle');
         const navLinks = document.querySelector('.nav-links');
         navToggle.addEventListener('click', () => {
             navToggle.classList.toggle('active');
             navLinks.classList.toggle('active');
+            navToggle.setAttribute('aria-expanded', navToggle.classList.contains('active'));
         });
 
-        // Close mobile menu on link click
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navToggle.classList.remove('active');
                 navLinks.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
             });
         });
 
-        // Close mobile menu on outside click
         document.addEventListener('click', (e) => {
             if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
                 navToggle.classList.remove('active');
                 navLinks.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
             }
         });
 
