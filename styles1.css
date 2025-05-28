@@ -370,9 +370,9 @@ main {
 
 .showcase-item .image img {
     width: 100%;
-    max-width: 150px;
-    border-radius: 8px;
-    object-fit: contain;
+    max-width: 350px; /* Increased image size */
+    border-radius: 0px;
+    object-fit: cover; /* Changed to cover for better visual fit */
 }
 
 .showcase-item .info {
