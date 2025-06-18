@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Official documentation for LearnixOS, a Linux distribution for education and experimentation.">
+  <meta name="keywords" content="LearnixOS, Linux, documentation, guide, open-source">
+  <meta property="og:title" content="LearnixOS | Documentation">
+  <meta property="og:description" content="guide for installing, using, and troubleshooting LearnixOS.">
+  <meta property="og:image" content="/assets/images/soon1.webp">
+  <meta property="og:url" content="https://learnixos.github.io/documentation/">
+  <title>LearniXOS - Documentation</title>
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body class="bg-dark text-primary font-panton overflow-x-hidden">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-dark/80 backdrop-blur-md shadow-lg" x-data="{ open: false }">
+    <nav class="container mx-auto px-4 py-4 sm:px-6 lg:px-12 flex justify-between items-center">
+      <a href="/" class="text-2xl font-bold flex items-center">
+        <img src="/assets/images/logo.webp" alt="LearniXOS Logo" class="h-8 w-auto mr-2"> 
+        <span class="gradient-text">LearniXOS</span>
+      </a>
+      <div class="hidden md:flex space-x-8">
+        <a href="/" class="text-primary hover:text-primary-dark transition">Home</a>
+        <a href="/about/" class="text-primary hover:text-primary-dark transition">About</a>
+        <a href="/install/" class="text-primary hover:text-primary-dark transition">Install</a>
+        <a href="/documentation/" class="text-primary hover:text-primary-dark transition">Documentation</a>
+        <a href="/contribute/" class="text-primary hover:text-primary-dark transition">Contribute</a>
+        <a href="/contact/" class="text-primary hover:text-primary-dark transition">Contact</a>
+      </div>
+      <button @click="open = !open" class="md:hidden p-2" aria-label="Toggle menu">
+        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </nav>
+    <div x-show="open" class="md:hidden bg-dark/90 px-4 py-2" x-transition>
+      <a href="/" class="block py-2 text-primary hover:text-primary-dark">Home</a>
+      <a href="/about/" class="block py-2 text-primary hover:text-primary-dark">About</a>
+      <a href="/install/" class="block py-2 text-primary hover:text-primary-dark">Install</a>
+      <a href="/documentation/" class="block py-2 text-primary hover:text-primary-dark">Documentation</a>
+      <a href="/contribute/" class="block py-2 text-primary hover:text-primary-dark">Contribute</a>
+      <a href="/contact/" class="block py-2 text-primary hover:text-primary-dark">Contact</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-[40vh] flex items-center justify-center py-12 sm:py-16 lg:py-20 parallax-hero" style="background-image: url('/assets/images/bg.webp');">
+    <div class="absolute inset-0 bg-dark/60"></div>
+    <div class="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10 text-center">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold gradient-text mb-4 animate-fade-in mt-16 sm:mt-0">LearnixOS Documentation</h1>
+      <p class="text-lg sm:text-xl text-secondary mb-6 max-w-2xl mx-auto">Your comprehensive guide to installing, using, and troubleshooting LearnixOS, designed for learning and experimentation.</p>
+    </div>
+  </section>
+
+  <!-- Documentation Section -->
+  <section class="container mx-auto px-4 sm:px-6 lg:px-12 py-16 scroll-reveal">
+    <div class="max-w-4xl mx-auto">
+      <!-- Getting Started -->
+      <div class="bg-card p-8 rounded-xl border border-border-color backdrop-blur-md hover:shadow-neumorphic transition mb-8">
+        <div class="flex items-center mb-6">
+          <div class="bg-primary/20 p-3 rounded-lg mr-4">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+          </div>
+          <div>
+            <h2 class="text-2xl font-bold gradient-text mb-2">Getting Started</h2>
+            <p class="text-secondary">Begin your journey with LearnixOS by setting up your system.</p>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <div>
+            <h3 class="text-lg font-semibold text-primary mb-2">Installation</h3>
+            <p class="text-secondary mb-3">Download the latest LearniXOS ISO from our <a href="https://github.com/LearnixOS" class="text-primary hover:text-primary-dark transition">GitHub repository</a>. Create a bootable USB using tools like Rufus (Windows), Etcher (cross-platform), or <code>dd</code> (Linux/macOS). Boot from the USB and follow the installation wizard to set up your system.</p>
+            <a href="/install/" class="cta-button inline-block">View Installation Guide</a>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-primary mb-2">System Requirements</h3>
+            <p class="text-secondary">Ensure your system meets the following: 64-bit CPU, 2GB RAM (4GB recommended), 20GB storage, and UEFI or Legacy BIOS support.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Package Management -->
+      <div class="bg-card p-8 rounded-xl border border-border-color backdrop-blur-md hover:shadow-neumorphic transition mb-8">
+        <div class="flex items-center mb-6">
+          <div class="bg-primary/20 p-3 rounded-lg mr-4">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path>
+            </svg>
+          </div>
+          <div>
+            <h2 class="text-2xl font-bold gradient-text mb-2">Package Management</h2>
+            <p class="text-secondary">Manage software packages efficiently with LearniXOS tools.</p>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <div>
+            <h3 class="text-lg font-semibold text-primary mb-2">Using the Package Manager</h3>
+            <p class="text-secondary mb-3">LearnixOS uses a source based package manager called lxpkg, Update the package list with:</p>
+            <div class="bg-dark/50 p-4 rounded-lg border border-border-color">
+              <code class="text-sm text-primary">lx lxpkg update</code>
+            </div>
+            <p class="text-secondary mt-3">Install a package (e.g., <code>vim</code>):</p>
+            <div class="bg-dark/50 p-4 rounded-lg border border-border-color">
+              <code class="text-sm text-primary">lx lxpkg install vim</code>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-primary mb-2">Adding Repositories</h3>
+            <p class="text-secondary">Add third-party repositories to access additional software. Edit the sources file (e.g., <code>/etc/lxpkg.conf</code>) and update the package list.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Basic Commands -->
+      <div class="bg-card p-8 rounded-xl border border-border-color backdrop-blur-md hover:shadow-neumorphic transition mb-8">
+        <div class="flex items-center mb-6">
+          <div class="bg-primary/20 p-3 rounded-lg mr-4">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <div>
+            <h2 class="text-2xl font-bold gradient-text mb-2">Basic Commands</h2>
+            <p class="text-secondary">Learn essential Linux commands for everyday use.</p>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <div>
+            <h3 class="text-lg font-semibold text-primary mb-2">Navigating the Filesystem</h3>
+            <p class="text-secondary mb-3">Use these commands to move around and manage files:</p>
+            <div class="bg-dark/50 p-4 rounded-lg border border-border-color">
+              <ul class="text-sm text-secondary space-y-1">
+                <li><code class="text-primary">ls</code> - List directory contents</li>
+                <li><code class="text-primary">cd /path/to/directory</code> - Change directory</li>
+                <li><code class="text-primary">pwd</code> - Print current directory</li>
+                <li><code class="text-primary">mkdir new_folder</code> - Create a directory</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-primary mb-2">File Operations</h3>
+            <p class="text-secondary">Manage files with commands like:</p>
+            <div class="bg-dark/50 p-4 rounded-lg border border-border-color">
+              <ul class="text-sm text-secondary space-y-1">
+                <li><code class="text-primary">cp source destination</code> - Copy files</li>
+                <li><code class="text-primary">mv source destination</code> - Move/rename files</li>
+                <li><code class="text-primary">rm file</code> - Delete files</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Troubleshooting -->
+      <div class="bg-card p-8 rounded-xl border border-border-color backdrop-blur-md hover:shadow-neumorphic transition mb-8">
+        <div class="flex items-center mb-6">
+          <div class="bg-primary/20 p-3 rounded-lg mr-4">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+            </svg>
+          </div>
+          <div>
+            <h2 class="text-2xl font-bold gradient-text mb-2">Troubleshooting</h2>
+            <p class="text-secondary">Resolve common issues with LearnixOS.</p>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <div>
+            <h3 class="text-lg font-semibold text-primary mb-2">Boot Issues</h3>
+            <p class="text-secondary mb-3">If LearnixOS fails to boot, check your BIOS/UEFI settings to ensure the correct boot device is selected. Try disabling Secure Boot if issues persist.</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-primary mb-2">Package Installation Errors</h3>
+            <p class="text-secondary">If you encounter errors during package installation, ensure your internet connection is stable and run:</p>
+            <div class="bg-dark/50 p-4 rounded-lg border border-border-color">
+              <code class="text-sm text-primary">lx lxpkg update && lx lxpkg upgrade</code>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-primary mb-2">Get Help</h3>
+            <p class="text-secondary">Join our community for additional support:</p>
+            <a href="https://discord.gg/VvQFNdzjRh" class="cta-button inline-block">Join Discord</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Community Section -->
+      <div class="bg-card p-8 rounded-xl border border-border-color backdrop-blur-md hover:shadow-neumorphic transition">
+        <div class="flex items-center mb-6">
+          <div class="bg-primary/20 p-3 rounded-lg mr-4">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+            </svg>
+          </div>
+          <div>
+            <h2 class="text-2xl font-bold gradient-text mb-2">Contact & Info</h2>
+            <p class="text-secondary">LearniXOS thrives on community contributions and feedback.</p>
+          </div>
+        </div>
+        <p class="text-secondary mb-6">ask questions, and contribute to the project.</p>
+        <div class="social-links grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <a href="https://github.com/LearnixOS" target="_blank" class="social-link flex items-center justify-center text-primary hover:text-primary-dark transition bg-dark/50 p-4 rounded-lg border border-border-color">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            GitHub
+          </a>
+          <a href="https://www.youtube.com/@_Learnix" target="_blank" class="social-link flex items-center justify-center text-primary hover:text-primary-dark transition bg-dark/50 p-4 rounded-lg border border-border-color">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.016 3.016 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.872.505 9.377.505 9.377.505s7.505 0 9.377-.505a3.016 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+            YouTube
+          </a>
+          <a href="https://discord.gg/VvQFNdzjRh" target="_blank" class="social-link flex items-center justify-center text-primary hover:text-primary-dark transition bg-dark/50 p-4 rounded-lg border border-border-color">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.078.037c-.211.375-.444.864-.608 1.249a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.249.077.077 0 00-.078-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.029.027C.533 9.045-.319 13.579.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028 14.09 14.09 0 001.226-1.994.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.134 10.44 10.44 0 00.346-.237.067.067 0 01.077-.01c.387.278.792.55 1.217.812a12.94 12.94 0 007.306 0c.425-.262.83-.534 1.217-.812a.067.067 0 01.077.01c.115.08.231.162.346.237a.077.077 0 01-.008.134 13.107 13.107 0 01-1.872.892.076.076 0 00-.041.106c.36.698.792 1.367 1.226 1.994a.076.076 0 00.084.028 19.831 19.831 0 005.993-3.03.076.076 0 00.032-.057c.5-4.885-.359-9.405-3.329-13.688a.068.068 0 00-.028-.027zM8.027 14.97c-.585 0-1.077-.532-1.077-1.188s.482-1.188 1.077-1.188c.595 0 1.077.532 1.077 1.188s-.482 1.188-1.077 1.188zm7.946 0c-.585 0-1.077-.532-1.077-1.188s.482-1.188 1.077-1.188c.595 0 1.077.532 1.077 1.188s-.482 1.188-1.077 1.188z"/>
+            </svg>
+            Discord
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark/80 py-8">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-12 text-center text-secondary">
+      <p class="mb-4">2025 LearniXOS.</p>
+      <div class="flex justify-center space-x-4">
+        <a href="https://github.com/LearnixOS" class="text-primary hover:text-primary-dark transition">GitHub</a>
+        <a href="/contact/" class="text-primary hover:text-primary-dark transition">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

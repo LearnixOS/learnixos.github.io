@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LearniXOS - A Linux distribution for learning, experimentation, and innovation with custom tools like slim-tools, lxpkg, and lxsh.">
+  <meta name="keywords" content="LearniXOS, Linux, open-source, education, slim-tools, lxpkg, lxsh, lx-shell">
+  <meta property="og:title" content="LearniXOS - Learn Linux with Ease">
+  <meta property="og:description" content="Discover LearniXOS, a Linux distro for education and experimentation with custom tools like slim-tools, lxpkg, and lxsh.">
+  <meta property="og:image" content="/assets/images/soon.webp">
+  <meta property="og:url" content="https://learnixos.github.io/">
+  <title>LearniXOS - Home</title>
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body class="bg-dark text-primary font-panton overflow-x-hidden">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-dark/80 backdrop-blur-md shadow-lg" x-data="{ open: false }">
+    <nav class="container mx-auto px-4 py-4 sm:px-6 lg:px-12 flex justify-between items-center">
+      <a href="/" class="text-2xl font-bold flex items-center">
+        <img src="/assets/images/logo.webp" alt="LearniXOS Logo" class="h-8 w-auto mr-2"> 
+        <span class="gradient-text">LearniXOS</span>
+      </a>
+      <div class="hidden md:flex space-x-8">
+        <a href="/" class="text-primary hover:text-primary-dark transition">Home</a>
+        <a href="/about/" class="text-primary hover:text-primary-dark transition">About</a>
+        <a href="/install/" class="text-primary hover:text-primary-dark transition">Install</a>
+        <a href="/contribute/" class="text-primary hover:text-primary-dark transition">Contribute</a>
+        <a href="/contact/" class="text-primary hover:text-primary-dark transition">Contact</a>
+      </div>
+      <button @click="open = !open" class="md:hidden p-2" aria-label="Toggle menu">
+        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </nav>
+    <div x-show="open" class="md:hidden bg-dark/90 px-4 py-2" x-transition>
+      <a href="/" class="block py-2 text-primary hover:text-primary-dark">Home</a>
+      <a href="/about/" class="block py-2 text-primary hover:text-primary-dark">About</a>
+      <a href="/install/" class="block py-2 text-primary hover:text-primary-dark">Install</a>
+      <a href="/contribute/" class="block py-2 text-primary hover:text-primary-dark">Contribute</a>
+      <a href="/contact/" class="block py-2 text-primary hover:text-primary-dark">Contact</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-[80vh] flex items-center justify-center py-12 sm:py-16 lg:py-20 parallax-hero" style="background-image: url('/assets/images/bg.webp');">
+    <div class="absolute inset-0 bg-dark/60"></div>
+    <div class="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+      <div class="max-w-2xl">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold gradient-text mb-4 animate-fade-in">Discover LearniXOS</h1>
+        <p class="text-lg sm:text-xl text-secondary mb-6 max-w-lg">A Linux distribution crafted for learning, experimentation, and innovation with custom tools like slim-tools, lxpkg, and lxsh.</p>
+        <div class="flex flex-col sm:flex-row gap-4 mb-8">
+          <a href="/install/" class="cta-button">Get Started</a>
+          <a href="/about/" class="cta-button-secondary">Learn More</a>
+        </div>
+        <div class="stats-container">
+          <div class="stat-item">
+            <span class="stat-number gradient-text">6+</span>
+            <span class="stat-label">Custom Tools</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number gradient-text">100+</span>
+            <span class="stat-label">Community Members</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-graphics hidden lg:block">
+        <div class="gradient-orb"></div>
+        <div class="floating-cards">
+          <div class="card card-1">
+            <img src="/assets/images/soon.webp" alt="" class="w-full h-full object-cover rounded-lg">
+          </div>
+          <div class="card card-2">
+            <img src="/assets/images/soon.webp" alt="" class="w-full h-full object-cover rounded-lg">
+          </div>
+          <div class="card card-3">
+            <img src="/assets/images/soon.webp" alt="" class="w-full h-full object-cover rounded-lg">
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="container mx-auto px-4 sm:px-6 lg:px-12 py-16 scroll-reveal">
+    <h2 class="text-3xl sm:text-4xl font-bold text-center gradient-text mb-12">Why Choose LearniXOS?</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-card p-6 rounded-xl border border-border-color backdrop-blur-md hover:shadow-neumorphic transition transform hover:-translate-y-1">
+        <h3 class="text-xl font-semibold gradient-text mb-4">Learn Linux</h3>
+        <p class="text-secondary">Dive into the core of Linux with a distro built for education and exploration.</p>
+      </div>
+      <div class="bg-card p-6 rounded-xl border border-border-color backdrop-blur-md hover:shadow-neumorphic transition transform hover:-translate-y-1">
+        <h3 class="text-xl font-semibold gradient-text mb-4">Experiment Freely</h3>
+        <p class="text-secondary">Test and tweak safely with a system designed for experimentation.</p>
+      </div>
+      <div class="bg-card p-6 rounded-xl border border-border-color backdrop-blur-md hover:shadow-neumorphic transition transform hover:-translate-y-1">
+        <h3 class="text-xl font-semibold gradient-text mb-4">Open Source</h3>
+        <p class="text-secondary">Contribute to a community-driven project and shape the future of LearniXOS.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Custom Tools Section -->
+  <section class="container mx-auto px-4 sm:px-6 lg:px-12 py-16 bg-dark/50 backdrop-blur-sm scroll-reveal">
+    <h2 class="text-3xl sm:text-4xl font-bold text-center gradient-text mb-12">Our Custom Tools</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div class="bg-card p-6 rounded-xl border border-border-color backdrop-blur-md flex items-center space-x-4 hover:shadow-neumorphic transition">
+        <img src="/assets/images/soon.png" alt="slim-tools" class="h-16 w-16 object-cover rounded">
+        <div>
+          <h3 class="text-xl font-semibold gradient-text mb-2">slim-tools</h3>
+          <p class="text-secondary">A lightweight, C-based replacement for GNU coreutils, optimized for minimal systems.</p>
+        </div>
+      </div>
+      <div class="bg-card p-6 rounded-xl border border-border-color backdrop-blur-md flex items-center space-x-4 hover:shadow-neumorphic transition">
+        <img src="/assets/images/soon.png" alt="lxpkg" class="h-16 w-16 object-cover rounded">
+        <div>
+          <h3 class="text-xl font-semibold gradient-text mb-2">lxpkg</h3>
+          <p class="text-secondary">A beta package manager in C++ with Python integration, designed for efficiency and ease.</p>
+        </div>
+      </div>
+      <div class="bg-card p-6 rounded-xl border border-border-color backdrop-blur-md flex items-center space-x-4 hover:shadow-neumorphic transition">
+          <img src="/assets/images/soon.png" alt="lxsh" class="h-16 w-16 object-cover rounded">
+        <div>
+          <h3 class="text-xl font-semibold gradient-text mb-2">lxsh</h3>
+          <p class="text-secondary">A POSIX-compliant shell, lightweight and user-friendly for scripting and interaction.</p>
+        </div>
+      </div>
+      <div class="bg-card p-6 rounded-xl border border-border-color backdrop-blur-md flex items-center space-x-4 hover:shadow-neumorphic transition">
+        <img src="/assets/images/soon.png" alt="Repo Packages" class="h-16 w-16 object-cover rounded">
+        <div>
+          <h3 class="text-xl font-semibold gradient-text mb-2">Custom Repository</h3>
+          <p class="text-secondary">POSIX-compliant package scripts, simple to maintain and contribute to.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="container mx-auto px-4 sm:px-6 lg:px-12 py-16 text-center scroll-reveal">
+    <h2 class="text-3xl sm:text-4xl font-bold gradient-text mb-6">Ready to Dive In?</h2>
+    <p class="text-lg text-secondary mb-8 max-w-xl mx-auto">Join exploring LearniXOS and its innovative tools!</p>
+    <a href="/install/" class="cta-button">Install Now</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark/80 py-8">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-12 text-center text-secondary">
+      <p class="mb-4">2025 LearniXOS.</p>
+      <div class="flex justify-center space-x-4">
+        <a href="https://github.com/LearnixOS" class="text-primary hover:text-primary-dark transition">GitHub</a>
+        <a href="/contact/" class="text-primary hover:text-primary-dark transition">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
