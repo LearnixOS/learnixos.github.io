@@ -3,20 +3,27 @@
 </div>
 
 <div align="center">
-  <h2 style="font-size: 74px;">
+  <h2 style="font-size: 84px;">
     <strong>
       <a href="https://learnixos.github.io/" style="text-decoration: none; color: inherit;">
-        𝗟𝗲𝗮𝗿𝗻𝗶𝘅𝗢𝗦
+        Visit the Website
       </a>
     </strong>
   </h2>
 </div>
 
-  <br> <!-- Creates extra space -->
+<p align="center">
+  <img src="https://img.shields.io/github/stars/LearnixOS/LearnixOS?style=flat-square" alt="GitHub Stars"/>
+  <img src="https://img.shields.io/github/forks/LearnixOS/LearnixOS?style=flat-square" alt="GitHub Forks"/>
+  <img src="https://img.shields.io/github/license/LearnixOS/LearnixOS?style=flat-square" alt="License"/>
+</p>
 
 
-<h1>
-  <img src="assets/images/laptopframe.png" align="center" alt="Preview" width="650" style="display: inline-block; margin: 0; border: 2px solid #555; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);">
-</h1>
 
-  <br> <!-- Creates extra space -->
+  <br>
+
+<p align="center">
+  <img src="assets/images/frame.png" alt="Laptop" width="700" style="border: 2px solid #555; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);"/>
+</p>
+
+  <br>
